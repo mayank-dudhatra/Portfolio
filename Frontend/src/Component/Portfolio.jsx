@@ -430,6 +430,96 @@ function Service () {
 }
 
 
+function Contactus () {
+
+  return (
+    <>
+    <div className=" py-16 px-5 mt-32">
+  <h3 className="text-[#80db66] font-jost text-center font-semibold text-xl uppercase tracking-[10px]">
+    Contact Me
+  </h3>
+  <h2 className="text-[#2e2e37] font-jost text-center text-[55px] font-bold mt-4">
+    Let's Start A New Project
+  </h2>
+
+  <div className="flex flex-col  md:flex-row flex-wrap justify-between items-center mt-10 gap-14">
+    
+    <div className="space-y-8 mb-12">
+      
+      <div className="flex items-center gap-4">
+        <div className="bg-[#80db66] p-3 rounded-full">
+          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953054/ugi0crtjdheiuvsrnhyi.png" alt="Location" className="w-[50px] h-[50px]"  />
+        </div>
+        <div>
+          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Location</h4>
+          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">Rai University, Ahmedabad</p>
+        </div>
+      </div>
+
+      
+      <div className="flex items-center gap-4">
+        <div className="bg-[#80db66] p-3 rounded-full">
+          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953144/usf6jdg2okyyqbiwtymw.png" alt="Phone" className="w-[50px] h-[50px]" />
+        </div>
+        <div>
+          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Phone</h4>
+          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">+91 8155814237</p>
+        </div>
+      </div>
+
+      
+      <div className="flex items-center gap-4">
+        <div className="bg-[#80db66] p-3 rounded-full">
+          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953194/nw9cn5rsrjzsvjhvxmrk.png" alt="Email" className="w-[50px] h-[50px]" />
+        </div>
+        <div>
+          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Email</h4>
+          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">maynkdudhatracg@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+   
+    <form className=" p-6 rounded-lg w-full max-w-xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+        />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <input
+          type="text"
+          placeholder="Your Phone"
+          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+        />
+        <input
+          type="text"
+          placeholder="Your Subject"
+          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+        />
+      </div>
+      <textarea
+        placeholder="Start writing message here"
+        className="border border-gray-300 p-3 rounded-lg w-full max-w-[656px] h-[200px] resize-none mt-4"
+      ></textarea>
+      <button className="bg-[#80db66] text-white px-6 py-3 text-center rounded-lg mt-4 w-[183px] h-[53px] font-semibold text-lg">
+        Submit Now
+      </button>
+    </form>
+  </div>
+</div>
+
+    </>
+  )
+}
+
 
 
 import { useState, useEffect } from "react";
@@ -535,6 +625,11 @@ export default function HeroSection() {
       {/* My Service Section */}
       <section id="Service">
         <Service />
+      </section>
+
+       {/* Contact Me Section */}
+       <section id="Contactus">
+        <Contactus />
       </section>
 
           </>
