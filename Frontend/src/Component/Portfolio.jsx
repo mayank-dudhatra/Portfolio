@@ -430,95 +430,183 @@ function Service () {
 }
 
 
-function Contactus () {
+
+function Contactus() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle Form Submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setResponseMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setResponseMessage("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        setResponseMessage("Failed to send message. Try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setResponseMessage("Server error. Try again later.");
+    }
+
+    setLoading(false);
+  };
 
   return (
-    <>
-    <div className=" py-16 px-5 mt-32">
-  <h3 className="text-[#80db66] font-jost text-center font-semibold text-xl uppercase tracking-[10px]">
-    Contact Me
-  </h3>
-  <h2 className="text-[#2e2e37] font-jost text-center text-[55px] font-bold mt-4">
-    Let's Start A New Project
-  </h2>
+    <div className="py-16 px-5 mt-32">
+      <h3 className="text-[#80db66] font-jost text-center font-semibold text-xl uppercase tracking-[10px]">
+        Contact Me
+      </h3>
+      <h2 className="text-[#2e2e37] font-jost text-center text-[55px] font-bold mt-4">
+        Let's Start A New Project
+      </h2>
 
-  <div className="flex flex-col  md:flex-row flex-wrap justify-between items-center mt-10 gap-14">
-    
-    <div className="space-y-8 mb-12">
-      
-      <div className="flex items-center gap-4">
-        <div className="bg-[#80db66] p-3 rounded-full">
-          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953054/ugi0crtjdheiuvsrnhyi.png" alt="Location" className="w-[50px] h-[50px]"  />
-        </div>
-        <div>
-          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Location</h4>
-          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">Rai University, Ahmedabad</p>
-        </div>
-      </div>
+      <div className="flex flex-col md:flex-row flex-wrap justify-between items-center mt-10 gap-14">
+        {/* Contact Info Section */}
+        <div className="space-y-8 mb-12">
+          {/* Location */}
+          <div className="flex items-center gap-4">
+            <div className="bg-[#80db66] p-3 rounded-full">
+              <img
+                src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953054/ugi0crtjdheiuvsrnhyi.png"
+                alt="Location"
+                className="w-[50px] h-[50px]"
+              />
+            </div>
+            <div>
+              <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Location</h4>
+              <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">Rai University, Ahmedabad</p>
+            </div>
+          </div>
 
-      
-      <div className="flex items-center gap-4">
-        <div className="bg-[#80db66] p-3 rounded-full">
-          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953144/usf6jdg2okyyqbiwtymw.png" alt="Phone" className="w-[50px] h-[50px]" />
-        </div>
-        <div>
-          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Phone</h4>
-          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">+91 8155814237</p>
-        </div>
-      </div>
+          {/* Phone */}
+          <div className="flex items-center gap-4">
+            <div className="bg-[#80db66] p-3 rounded-full">
+              <img
+                src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953144/usf6jdg2okyyqbiwtymw.png"
+                alt="Phone"
+                className="w-[50px] h-[50px]"
+              />
+            </div>
+            <div>
+              <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Phone</h4>
+              <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">+91 8155814237</p>
+            </div>
+          </div>
 
-      
-      <div className="flex items-center gap-4">
-        <div className="bg-[#80db66] p-3 rounded-full">
-          <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953194/nw9cn5rsrjzsvjhvxmrk.png" alt="Email" className="w-[50px] h-[50px]" />
+          {/* Email */}
+          <div className="flex items-center gap-4">
+            <div className="bg-[#80db66] p-3 rounded-full">
+              <img
+                src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739953194/nw9cn5rsrjzsvjhvxmrk.png"
+                alt="Email"
+                className="w-[50px] h-[50px]"
+              />
+            </div>
+            <div>
+              <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Email</h4>
+              <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">maynkdudhatracg@gmail.com</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="text-[24px] text-[#2e2e37] font-jost font-semibold">Email</h4>
-          <p className="text-[#4d4d5c] font-jost mt-2 text-[20px]">maynkdudhatracg@gmail.com</p>
-        </div>
+
+        {/* Contact Form */}
+        <form className="p-6 rounded-lg w-full max-w-xl" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+              required
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Your Phone"
+              className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+              required
+            />
+            <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Your Subject"
+              className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
+              required
+            />
+          </div>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Start writing message here"
+            className="border border-gray-300 p-3 rounded-lg w-full max-w-[656px] h-[200px] resize-none mt-4"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-[#80db66] text-white px-6 py-3 text-center rounded-lg mt-4 w-[183px] h-[53px] font-semibold text-lg"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Submit Now"}
+          </button>
+
+          {/* Show Response Message */}
+          {responseMessage && (
+            <p className="mt-4 text-center text-lg font-semibold text-gray-600">
+              {responseMessage}
+            </p>
+          )}
+        </form>
       </div>
     </div>
-
-   
-    <form className=" p-6 rounded-lg w-full max-w-xl">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
-        />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <input
-          type="text"
-          placeholder="Your Phone"
-          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
-        />
-        <input
-          type="text"
-          placeholder="Your Subject"
-          className="border border-gray-300 p-3 rounded-lg w-full max-w-[322px] h-[60px]"
-        />
-      </div>
-      <textarea
-        placeholder="Start writing message here"
-        className="border border-gray-300 p-3 rounded-lg w-full max-w-[656px] h-[200px] resize-none mt-4"
-      ></textarea>
-      <button className="bg-[#80db66] text-white px-6 py-3 text-center rounded-lg mt-4 w-[183px] h-[53px] font-semibold text-lg">
-        Submit Now
-      </button>
-    </form>
-  </div>
-</div>
-
-    </>
-  )
+  );
 }
+
 
 
 
