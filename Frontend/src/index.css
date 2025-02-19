@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .stroke-text {
+      -webkit-text-stroke: 1px #333;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+    }
+
+    .marquee {
+      display: flex;
+      min-width: 200%;
+      animation: marquee2 8s linear infinite; /* Adjust speed here */
+    }
+
+    @keyframes marquee2 {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
