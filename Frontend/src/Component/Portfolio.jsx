@@ -125,6 +125,94 @@ function Cards () {
   )
 }
 
+function Aboutme () {
+
+  return (
+    <>
+    <section className="py-14 pt-60">
+      <div className="flex gap-5 max-md:flex-col">
+        <div className="w-[44%] max-md:ml-0 max-md:w-full">
+          <img
+            loading="lazy"
+            src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739904150/qi2nacxd106x8pqnq6uu.png"
+            className="object-contain w-full aspect-[0.86] max-md:mt-10 max-md:max-w-full"
+            alt="Profile"
+          />
+        </div>
+        <div className="ml-5 w-[56%] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col items-start mt-7 w-full max-md:mt-10 max-md:max-w-full">
+            <h1 className="text-4xl font-semibold leading-none text-[#80db66] tracking-[12.96px]">
+              ABOUT ME
+            </h1>
+            <h2 className="mt-5 text-6xl font-semibold text-[#2E2E37] leading-[60px] max-md:max-w-full max-md:text-4xl max-md:leading-10">
+              Building Seamless & Scalable Digital Solutions
+            </h2>
+            <p className="self-stretch mt-9 text-2xl text-[#4D4D5C] max-md:mr-2 max-md:max-w-full">
+              I'm a UI/UX Designer and Full Stack Developer passionate about designing
+              intuitive user experiences and building scalable web solutions. My
+              journey began with cloning platforms like Amazon and YouTube, refining
+              my frontend skills. Over time, I expanded into backend development,
+              working on full-stack projects like TRAZEX11 and QuadFusion blending
+              creativity with functionality.
+            </p>
+            <section className="self-stretch mt-9 w-full max-md:max-w-full">
+              <div className="flex gap-5 max-md:flex-col">
+                <div className="w-[46%] max-md:ml-0 max-md:w-full">
+                  <dl className="flex grow gap-5 justify-between text-2xl text-[#4D4D5C] max-md:mt-10">
+                    <div className="flex flex-col items-start font-semibold whitespace-nowrap">
+                      <dt>Name</dt>
+                      <dt className="mt-2">Age</dt>
+                      <dt className="self-stretch mt-2">Address</dt>
+                    </div>
+                    <div className="flex flex-col items-start">
+                      <dd>Mayank Dudhatra</dd>
+                      <dd className="mt-2">18 Years</dd>
+                      <dd className="mt-2">Ahemdabad</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="ml-5 w-[54%] max-md:ml-0 max-md:w-full">
+                  <dl className="flex flex-col w-full text-[#4D4D5C] max-md:mt-10">
+                    <div className="flex gap-8">
+                      <div className="text-2xl font-semibold whitespace-nowrap">
+                        <dt className="max-md:mr-1">E-Mail</dt>
+                        <dt className="mt-2">Phone</dt>
+                      </div>
+                      <div className="flex flex-col grow shrink-0 self-start basis-0 w-fit">
+                        <dd className="text-xl">mayankdudhatracg@gmail.com</dd>
+                        <dd className="self-start mt-3 text-2xl">+91 8155814237</dd>
+                      </div>
+                    </div>
+                    <div className="flex gap-8 self-start mt-2 text-2xl whitespace-nowrap">
+                      <dt className="font-semibold basis-auto">Nationality</dt>
+                      <dd>Indian</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </section>
+
+            <div className="flex gap-10 mt-9 max-w-full font-semibold w-[474px]">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/122dbb8d77ee6be98e039605b7778fed68ad6746969e2b1b281318392c4a9fd9?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
+                className="object-contain shrink-0 max-w-full aspect-[2.44] w-[149px]"
+                alt="Signature"
+              />
+              <div className="flex flex-auto gap-4 self-start mt-1.5">
+                <p className="grow text-2xl text-black">Mayank Dudhatra</p>
+                <p className="text-base text-black">--- CSE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
+  )
+}
+
+
 
 
 
@@ -205,7 +293,11 @@ export default function HeroSection() {
       {/* Feature Cards */}
       <Cards />
 
-     
+      {/* About Me Section */}
+      <section id="Aboutme">
+        <Aboutme />
+      </section>
+
           </>
   );
 }
