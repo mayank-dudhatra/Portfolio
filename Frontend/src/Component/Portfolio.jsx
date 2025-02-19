@@ -433,6 +433,7 @@ function Service () {
 
 
 import { useState, useEffect } from "react";
+import Skill from './Skill'
 
 export default function HeroSection() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -527,6 +528,9 @@ export default function HeroSection() {
 
       {/* Rotating Single Line */}
       <Runningline />
+
+      {/* Skill Section */}
+      <Skill />
 
       {/* My Service Section */}
       <section id="Service">
