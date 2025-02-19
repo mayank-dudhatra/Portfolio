@@ -213,6 +213,80 @@ function Aboutme () {
 }
 
 
+function Runningline () {
+
+  return (
+    <>
+        <div class="marquee-container">
+  <h1 class="stroke-text marquee mt-40 mb-40 text-[96px] font-semibold leading-none tracking-[12.96px]">
+    <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
+    <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
+  </h1>
+</div>
+
+    </>
+  )
+}
+
+function Work () {
+
+  return (
+    <>
+    <section className="flex flex-col rounded-none">
+      <header>
+        <h1 className="z-10 self-center mt-0 text-4xl font-semibold leading-loose text-[#88db66] tracking-[9px] text-center">
+          PORTFOLIO
+        </h1>
+        <h2 className="self-center font-jost mt-8 mb-20 text-6xl font-semibold leading-none text-[#2e2e37] max-md:mt-10 max-md:max-w-full max-md:text-4xl text-center">
+          My Recent Works
+        </h2>
+      </header>
+      <div className="space-y-4">
+        {[1, 2, 3].map((_, index) => (
+          <article key={index} className="py-4 pr-8 pl-2 w-full border border-solid bg-neutral-300 bg-opacity-0 border-neutral-300 max-md:pr-5 max-md:max-w-full">
+            <div className="flex items-center gap-5 max-md:flex-col">
+              <div className="w-[56%] max-md:ml-0 max-md:w-full">
+                <div className="flex items-center flex-wrap gap-10 self-stretch my-auto font-semibold max-md:mt-10 max-md:max-w-full">
+                  <h3 className="my-auto text-xl text-[#9b9db1] basis-auto">Web Design</h3>
+                  <p className="flex-auto  text-5xl leading-none text-[#2e2e37] max-md:max-w-full max-md:text-4xl">
+                    Full Stack Development
+                  </p>
+                </div>
+              </div>
+              <div className="ml-5 w-[44%] max-md:ml-0 max-md:w-full">
+                <div className="grow max-md:mt-10 max-md:max-w-full">
+                  <div className="flex items-center gap-5 max-md:flex-col">
+                    <div className="w-[76%] max-md:ml-0 max-md:w-full">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
+                        alt="Project screenshot"
+                        className="object-contain grow w-full rounded-2xl aspect-[2.11] max-md:mt-10"
+                      />
+                    </div>
+                    <div className="ml-5 w-[24%] max-md:ml-0 max-md:w-full">
+                    <div className="flex items-center justify-center">
+      <div className="w-[95px] h-[95px] border-2 border-[#BCC7D3] rounded-full flex items-center justify-center hover:bg-[#80db66]">
+        <img
+          src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png"
+          alt="Plus Icon"
+          className="w-1/2 h-1/2"
+        />
+      </div>
+    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+    </>
+  )
+}
+
 
 
 
@@ -296,6 +370,14 @@ export default function HeroSection() {
       {/* About Me Section */}
       <section id="Aboutme">
         <Aboutme />
+      </section>
+
+      {/* Rotating Single Line */}
+      <Runningline />
+
+      {/* Work Section */}
+      <section id="Work">
+        <Work />
       </section>
 
           </>
