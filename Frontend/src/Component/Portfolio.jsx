@@ -287,6 +287,67 @@ function Work () {
   )
 }
 
+function Myeducation () {
+
+  return (
+    <>
+    <section className=" py-12 mt-60 px-6 rounded-lg">
+      <div className=" mx-auto flex gap-10 items-center max-md:flex-col">
+       
+        <div className="w-[60%] max-md:w-full">
+          <header>
+            <h3 className=" leading-none text-[#80db66] tracking-[12.96px] text-[36px] font-semibold">EDUCATION</h3>
+            <h1 className="text-[55px] font-jost text-[#2e2e37] font-semibold mt-2">My Education</h1>
+            <p className="mt-4 text-lg text-[#4d4d5c]">
+              I am currently pursuing a Bachelor of Technology in Computer Science
+              Engineering, enhancing my skills in Full Stack Development, UI/UX Design,
+              and Web Technologies to create seamless and scalable digital solutions.
+            </p>
+          </header>
+
+         
+          <div className="mt-8 space-y-6">
+           
+            <div className="flex items-start gap-10   rounded-lg ">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072" alt="icon" className="" />
+              <div>
+                <h2 className="text-[34px] font-semibold text-[#2e2e37]">Higher Secondary Certificate</h2>
+                <p className="text-[20px] text-[#2e2e37] font-semibold">Alpha Vidhya Sankul, Junagadh <span className="text-[#4d4d5c]">(2022 - 2024)</span></p>
+                <p className="text-[#4d4d5c] mt-4 text-[22px]">
+                  Successfully completed Higher Secondary Education, building a strong academic foundation before transitioning into the field of technology.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 rounded-lg ">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072" alt="icon" className="" />
+              <div>
+                <h2 className="text-[34px] font-semibold text-[#2e2e37]">Bachelor of Technology in CSE</h2>
+                <p className="text-[20px] text-[#2e2e37] font-semibold">Rai University <span className="text-gray-500">(2024 - 2028)</span></p>
+                <p className="text-[#4d4d5c] mt-4 text-[22px]">
+                  Gaining expertise in Full Stack Development, UI/UX Design, and Web Technologies, with a strong focus on creating user-centric and scalable solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <aside className="w-[40%] max-md:w-full">
+          <img
+            src="https://shthemes.net/demosd/thames/wp-content/uploads/2024/08/education-img.jpg"
+            alt="Education Illustration"
+            className="w-full rounded-lg shadow-lg"
+          />
+        </aside>
+      </div>
+    </section>
+
+    </>
+  )
+}
+
+
 
 
 
@@ -379,6 +440,12 @@ export default function HeroSection() {
       <section id="Work">
         <Work />
       </section>
+
+      {/* My Education Section */}
+      <Myeducation />
+
+      {/* Rotating Single Line */}
+      <Runningline />
 
           </>
   );
