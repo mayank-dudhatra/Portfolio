@@ -347,6 +347,87 @@ function Myeducation () {
   )
 }
 
+function Service () {
+
+  return (
+    <>
+    <div className="bg-[#25262f] p-20 py-32 mt-[-94px] text-center">
+  <div className="text-[#80db66] font-jost text-[36px] font-medium tracking-[10px] uppercase">
+    Service
+  </div>
+  <div className="text-white font-jost font-semibold text-[55px] mt-2 pb-8">
+    What I Offer
+  </div>
+  <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 gap-40 mt-10 place-items-center">
+    
+    <div className="flex gap-5 p-6 bg-white rounded-xl w-[650px] h-[260px]">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b90653539fc82c3989a36eb140676788b4d08aa698f9fa1384e2390aa6b2571a"
+        alt="Web Development"
+        className="object-contain w-[72px] h-[72px] self-start"
+      />
+      <div className="text-left">
+        <h2 className="text-[35px] pl-8 font-jost text-[#2e2e37] font-semibold">Web Development</h2>
+        <p className="mt-8 text-[22px] pl-8 font-jost text-[#4d4d5c]">
+          Proficient in building dynamic, responsive websites and applications using modern technologies such as JavaScript, Node.js, React, and MongoDB.
+        </p>
+      </div>
+    </div>
+
+   
+    <div className="flex gap-5 p-6 bg-white rounded-xl w-[650px] h-[260px]">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b90653539fc82c3989a36eb140676788b4d08aa698f9fa1384e2390aa6b2571a"
+        alt="UI/UX Design"
+        className="object-contain w-[72px] h-[72px] self-start"
+      />
+      <div className="text-left">
+        <h2 className="text-[35px] pl-8 font-jost text-[#2e2e37] font-semibold">UI/UX Design</h2>
+        <p className="mt-8 text-[22px] pl-8 font-jost text-[#4d4d5c]">
+          Skilled in creating intuitive and aesthetically appealing interfaces, focused on delivering an engaging user experience with tools like Figma.
+        </p>
+      </div>
+    </div>
+
+    
+    <div className="flex gap-5 p-6 bg-white rounded-xl w-[650px] h-[260px]">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b90653539fc82c3989a36eb140676788b4d08aa698f9fa1384e2390aa6b2571a"
+        alt="Frontend Development"
+        className="object-contain w-[72px] h-[72px] self-start"
+      />
+      <div className="text-left">
+        <h2 className="text-[35px] pl-8 font-jost text-[#2e2e37] font-semibold">Frontend Development</h2>
+        <p className="mt-8 text-[22px] pl-8 font-jost text-[#4d4d5c]">
+          Experienced in crafting responsive and user-friendly web pages using HTML, CSS, JavaScript, and frontend frameworks like React, ensuring a seamless and accessible user interface.
+        </p>
+      </div>
+    </div>
+
+    
+    <div className="flex gap-5 p-6 bg-white rounded-xl w-[650px] h-[260px]">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b90653539fc82c3989a36eb140676788b4d08aa698f9fa1384e2390aa6b2571a"
+        alt="Backend Development"
+        className="object-contain w-[72px] h-[72px] self-start"
+      />
+      <div className="text-left">
+        <h2 className="text-[35px] pl-8 font-jost text-[#2e2e37] font-semibold">Backend Development</h2>
+        <p className="mt-8 text-[22px] pl-8 font-jost text-[#4d4d5c]">
+          Expertise in building server-side applications with Node.js, Express, and managing databases like MongoDB and MySQL, ensuring efficient, secure, and scalable backend solutions.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </>
+  )
+}
 
 
 
@@ -446,6 +527,11 @@ export default function HeroSection() {
 
       {/* Rotating Single Line */}
       <Runningline />
+
+      {/* My Service Section */}
+      <section id="Service">
+        <Service />
+      </section>
 
           </>
   );
