@@ -39,15 +39,15 @@ function MainSection () {
           <p className="text-[36px] text-white mt-4">
             A Passionate <span className="text-[#80db66] font-semibold">Full Stack Developer</span>
           </p>
-          <button className="mt-6 bg-[#80db66] text-white text-[24px] font-semibold px-6 py-3 rounded-md shadow-md hover:shadow-lg transition">
+          <button className="mt-6 bg-[#80db66] text-white text-[24px] font-semibold px-6 py-3 rounded-md shadow-md hover:shadow-lg transition" onClick={Contactus}>
             SAY HELLO
           </button>
         </div>
         <div className="hidden md:block">
           <img
-            src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739895501/vp8bahhpvyzb8qo8estx.png"
+            src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739995255/b2mdgw25byhsmu3tptje.png"
             alt="Profile"
-            className="w-[684px] "
+            className="w-[707px] mr- "
           />
         </div>
       </div>
@@ -662,8 +662,8 @@ export default function HeroSection() {
         
         {/* Navbar */}
         <nav
-          className={`top-0 left-0 w-full flex justify-end items-center font-jost gap-16 text-[22px] font-medium leading-10 text-white py-9 px-12 transition-all duration-300 ${
-            isScrolled ? "fixed bg-black bg-opacity-80 py-1 pt-2 px-10 z-50 backdrop-blur-md shadow-md" : ""
+          className={`top-0 left-0 w-full flex justify-end items-center font-jost gap-16 text-[22px] font-medium leading-10 text-white py-2  px-12 transition-all duration-300 ${
+            isScrolled ? "fixed bg-black bg-opacity-80  pt-2 px-10 z-50 backdrop-blur-md shadow-md" : ""
           }`}
         >
           <div className={activeSection === "Home" ? "text-[#80db66]" : ""}>Home</div>
