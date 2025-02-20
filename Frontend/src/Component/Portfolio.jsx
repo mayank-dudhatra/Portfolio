@@ -228,28 +228,184 @@ function Runningline () {
   )
 }
 
-function Work () {
+// function Work() {
+//   const projects = [
+//     {
+//       id: 1,
+//       category: "Web Development",
+//       title: "TRAZEX11",
+//       imageUrl:
+//         "https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072",
+//       url: "https://trazex11.netlify.app",
+//     },
+//     {
+//       id: 2,
+//       category: "UI/UX Design",
+//       title: "Slick",
+//       imageUrl:
+//         "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1740031631/i7capxymvi9vidits3lb.png",
+//       url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=1-3&t=NVFz6WvsNH1imv8L-1",
+//     },
+//     {
+//       id: 3,
+//       category: "Web Development",
+//       title: "Quadfusion",
+//       imageUrl:
+//         "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1740026990/zrmxfd4hechsg90qtszl.png",
+//       url: "https://quadfusion.netlify.app/",
+//     },
+//   ];
+
+//   return (
+//     <section className="flex flex-col rounded-none">
+//       <header>
+//         <h1 className="z-10 self-center mt-0 text-4xl font-semibold leading-loose text-[#88db66] tracking-[9px] text-center">
+//           PORTFOLIO
+//         </h1>
+//         <h2 className="self-center font-jost mt-8 mb-20 text-6xl font-semibold leading-none text-[#2e2e37] max-md:mt-10 max-md:max-w-full max-md:text-4xl text-center">
+//           My Recent Works
+//         </h2>
+//       </header>
+//       <div className="space-y-4">
+//         {projects.map((project) => (
+//           <article
+//             key={project.id}
+//             className="py-4 pr-8 pl-2 w-full border border-solid bg-neutral-300 bg-opacity-0 border-neutral-300 max-md:pr-5 max-md:max-w-full"
+//           >
+//             <div className="flex items-center gap-5 max-md:flex-col">
+//               <div className="w-[56%] max-md:ml-0 max-md:w-full">
+//                 <div className="flex items-center flex-wrap gap-10 self-stretch my-auto font-semibold max-md:mt-10 max-md:max-w-full">
+//                   <h3 className="my-auto text-xl text-[#9b9db1] basis-auto">
+//                     {project.category}
+//                   </h3>
+//                   <p className="flex-auto text-5xl leading-none text-[#2e2e37] max-md:max-w-full max-md:text-4xl">
+//                     {project.title}
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="ml-5 w-[44%] max-md:ml-0 max-md:w-full">
+//                 <div className="grow max-md:mt-10 max-md:max-w-full">
+//                   <div className="flex items-center gap-5 max-md:flex-col">
+//                     <div className="w-[76%] max-md:ml-0 max-md:w-full">
+//                       <a href={project.url} target="_blank" rel="noopener noreferrer">
+//                         <img
+//                           loading="lazy"
+//                           src={project.imageUrl}
+//                           alt={project.title}
+//                           className="object-contain grow w-full rounded-2xl aspect-[2.11] max-md:mt-10 cursor-pointer"
+//                         />
+//                       </a>
+//                     </div>
+//                     <div className="ml-5 w-[24%] max-md:ml-0 max-md:w-full">
+//                       <div className="flex items-center justify-center">
+//                         <div className="w-[95px] h-[95px] border-2 border-[#BCC7D3] rounded-full flex items-center justify-center hover:bg-[#80db66]">
+//                           <img
+//                             src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png"
+//                             alt="Plus Icon"
+//                             className="w-1/2 h-1/2"
+//                           />
+//                         </div>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </article>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+
+function Work() {
+  const projects = [
+    {
+      id: 1,
+      category: "Web Development",
+      title: "TRAZEX11",
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072",
+      url: "https://trazex11.netlify.app",
+    },
+    {
+      id: 2,
+      category: "UI/UX Design",
+      title: "Slick",
+      imageUrl:
+        "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1740031631/i7capxymvi9vidits3lb.png",
+      url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=1-3&t=NVFz6WvsNH1imv8L-1",
+    },
+    {
+      id: 3,
+      category: "Web Development",
+      title: "Quadfusion",
+      imageUrl:
+        "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1740026990/zrmxfd4hechsg90qtszl.png",
+      url: "https://quadfusion.netlify.app/",
+    },
+    {
+      id: 4,
+      category: "Frontend Development",
+      title: "Probo",
+      imageUrl:
+        "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1740032607/upddei7awxqd5cfgrl1b.png",
+      url: "https://my-probo-clone.netlify.app/",
+    },
+  ];
+
+  const categories = ["All", "Web Development", "Frontend Development", "UI/UX Design"];
+
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <>
     <section className="flex flex-col rounded-none">
       <header>
         <h1 className="z-10 self-center mt-0 text-4xl font-semibold leading-loose text-[#88db66] tracking-[9px] text-center">
           PORTFOLIO
         </h1>
-        <h2 className="self-center font-jost mt-8 mb-20 text-6xl font-semibold leading-none text-[#2e2e37] max-md:mt-10 max-md:max-w-full max-md:text-4xl text-center">
+        <h2 className="self-center font-jost mt-8 mb-6 text-6xl font-semibold leading-none text-[#2e2e37] max-md:mt-10 max-md:max-w-full max-md:text-4xl text-center">
           My Recent Works
         </h2>
       </header>
+
+      {/* Filter Buttons */}
+      <div className="flex justify-center gap-4 mt-10 mb-10">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-6 py-2 text-lg font-semibold border-2 rounded-full transition-all ${
+              selectedCategory === category
+                ? "bg-[#88db66] text-white border-[#88db66]"
+                : "border-[#BCC7D3] text-[#2e2e37] hover:bg-[#88db66] hover:text-white"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className="space-y-4">
-        {[1, 2, 3].map((_, index) => (
-          <article key={index} className="py-4 pr-8 pl-2 w-full border border-solid bg-neutral-300 bg-opacity-0 border-neutral-300 max-md:pr-5 max-md:max-w-full">
+        {filteredProjects.map((project) => (
+          <article
+            key={project.id}
+            className="py-4 pr-8 pl-2 w-full border border-solid bg-neutral-300 bg-opacity-0 border-neutral-300 max-md:pr-5 max-md:max-w-full"
+          >
             <div className="flex items-center gap-5 max-md:flex-col">
               <div className="w-[56%] max-md:ml-0 max-md:w-full">
                 <div className="flex items-center flex-wrap gap-10 self-stretch my-auto font-semibold max-md:mt-10 max-md:max-w-full">
-                  <h3 className="my-auto text-xl text-[#9b9db1] basis-auto">Web Design</h3>
-                  <p className="flex-auto  text-5xl leading-none text-[#2e2e37] max-md:max-w-full max-md:text-4xl">
-                    Full Stack Development
+                  <h3 className="my-auto text-xl text-[#9b9db1] basis-auto">
+                    {project.category}
+                  </h3>
+                  <p className="flex-auto text-5xl leading-none text-[#2e2e37] max-md:max-w-full max-md:text-4xl">
+                    {project.title}
                   </p>
                 </div>
               </div>
@@ -257,23 +413,29 @@ function Work () {
                 <div className="grow max-md:mt-10 max-md:max-w-full">
                   <div className="flex items-center gap-5 max-md:flex-col">
                     <div className="w-[76%] max-md:ml-0 max-md:w-full">
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
-                        alt="Project screenshot"
-                        className="object-contain grow w-full rounded-2xl aspect-[2.11] max-md:mt-10"
-                      />
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          loading="lazy"
+                          src={project.imageUrl}
+                          alt={project.title}
+                          className="object-contain grow w-full rounded-2xl aspect-[2.11] max-md:mt-10 cursor-pointer"
+                        />
+                      </a>
                     </div>
                     <div className="ml-5 w-[24%] max-md:ml-0 max-md:w-full">
-                    <div className="flex items-center justify-center">
-      <div className="w-[95px] h-[95px] border-2 border-[#BCC7D3] rounded-full flex items-center justify-center hover:bg-[#80db66]">
-        <img
-          src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png"
-          alt="Plus Icon"
-          className="w-1/2 h-1/2"
-        />
-      </div>
-    </div>
+                      <div className="flex items-center justify-center">
+                        <div className="w-[95px] h-[95px] border-2 border-[#BCC7D3] rounded-full flex items-center justify-center hover:bg-[#80db66]">
+                          <img
+                            src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png"
+                            alt="Plus Icon"
+                            className="w-1/2 h-1/2"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -283,9 +445,13 @@ function Work () {
         ))}
       </div>
     </section>
-    </>
-  )
+  );
 }
+
+
+
+
+
 
 function Myeducation () {
 
