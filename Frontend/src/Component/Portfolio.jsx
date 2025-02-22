@@ -111,6 +111,11 @@ function MainSection() {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, charIndex, roleIndex]);
 
+  
+  const scrollToContact = () => {
+    document.getElementById("Contactus")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="flex flex-col items-center justify-center md:flex-row md:justify-evenly px-4 md:px-0">
@@ -125,7 +130,7 @@ function MainSection() {
             <p className="text-[18px] md:text-[36px] text-white mt-4">
               A Passionate <span className="text-[#80db66] font-semibold">{text}</span>
             </p>
-            <button className="mt-6 bg-[#80db66] text-white text-[16px] md:text-[24px] font-semibold px-4 md:px-6 py-2 md:py-3 rounded-md shadow-md hover:shadow-lg transition" onClick={Contactus}>
+            <button className="mt-6 bg-[#80db66] text-white text-[16px] md:text-[24px] font-semibold px-4 md:px-6 py-2 md:py-3 rounded-md shadow-md hover:shadow-lg transition" onClick={scrollToContact}>
               SAY HELLO
             </button>
           </div>
@@ -1503,7 +1508,7 @@ function Contactus() {
 
 
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Skill from './Skill'
 
 export default function HeroSection() {
