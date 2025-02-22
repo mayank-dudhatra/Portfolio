@@ -133,7 +133,7 @@ function MainSection() {
             <img
               src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739995255/b2mdgw25byhsmu3tptje.png"
               alt="Profile"
-              className="w-[200px] md:w-[707px] mx-auto"
+              className="w-[300px] md:w-[707px] mx-auto"
             />
           </div>
         </div>
