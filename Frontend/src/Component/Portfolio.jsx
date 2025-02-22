@@ -353,7 +353,9 @@ function Aboutme () {
                         <dt className="mt-2">Phone</dt>
                       </div>
                       <div className="flex flex-col grow shrink-0 self-start basis-0 w-fit">
-                        <dd className="text-xl">mayankdudhatracg@gmail.com</dd>
+                      <dd className="text-xl break-all max-md:break-words">
+                         mayankdudhatracg@gmail.com
+                      </dd>
                         <dd className="self-start mt-3 text-2xl">+91 8155814237</dd>
                       </div>
                     </div>
