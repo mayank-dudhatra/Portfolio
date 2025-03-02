@@ -500,13 +500,13 @@ function Work() {
   onClick={() => setSelectedProject(null)} // Click background to close
 >
   <div
-    className="bg-white p-6 md:p-8 rounded-lg shadow-lg flex flex-col w-full max-w-[700px] mt-10 mb-10"
+    className="bg-white p-6 md:p-8 rounded-lg shadow-lg flex flex-col w-full max-w-[1000px] mt-10 mb-10"
     onClick={(e) => e.stopPropagation()} // Prevent accidental close when clicking inside
   >
     {/* Show Video for TRAZEX11, Otherwise Show Image */}
     {selectedProject.title === "TRAZEX11" ? (
       <video
-        src="https://res.cloudinary.com/dbrb9ptmn/video/upload/v1740031631/your-video-file.mp4"
+        src="https://res.cloudinary.com/dbrb9ptmn/video/upload/v1740950358/migleznjes4i4am2xorg.mp4"
         controls
         autoPlay
         muted
