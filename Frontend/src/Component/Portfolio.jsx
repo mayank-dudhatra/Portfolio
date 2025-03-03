@@ -506,7 +506,7 @@ function Work() {
     {/* Show Video for TRAZEX11, Otherwise Show Image */}
     {selectedProject.title === "TRAZEX11" ? (
       <video
-        src="https://res.cloudinary.com/dbrb9ptmn/video/upload/v1740950358/migleznjes4i4am2xorg.mp4"
+        src="https://res.cloudinary.com/dbrb9ptmn/video/upload/v1740980152/so6rxikt0v4vepkjjynw.mp4"
         controls
         autoPlay
         muted
