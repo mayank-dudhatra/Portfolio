@@ -420,6 +420,14 @@ function Work() {
       url: "https://my-probo-clone.netlify.app/",
       description: "Probo is a frontend development project featuring dynamic UI elements, performance optimizations, and a sleek design.",
     },
+    {
+      id: 5,
+      category: "UI/UX Design",
+      title: "ScanX",
+      imageUrl: "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1742497642/kxrtmszauv8nz6qnjryb.png",
+      url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=1949-239&t=ZnBpp5DSBmvxs18v-1",
+      description: "Designed a modern, user-friendly interface for ScanX, a document scanning and comparison platform. The Figma prototype features an intuitive Home Page, seamless User Authentication (Signup/Login), and dedicated pages for Scanning, Comparing, and Managing Documents. The UI ensures easy navigation, interactive file uploads, and a structured My Files section for efficient document storage. Additional pages include Contact Us, FAQs, and Privacy Policy, enhancing user accessibility and support. The design prioritizes clarity, responsiveness, and a professional experience.",
+    },
   ];
 
   const categories = ["All", "Web Development", "Frontend Development", "UI/UX Design"];
