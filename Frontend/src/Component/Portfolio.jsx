@@ -320,60 +320,64 @@ function Cards() {
 function Aboutme() {
   return (
     <>
-      <section className="py-14 pt-60">
-        <div className="flex gap-5 max-md:flex-col">
-          <div className="w-[44%] max-md:ml-0 max-md:w-full">
+      <section className="py-14 md:pt-60 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {/* Image Section */}
+          <div className="w-full md:w-5/12 lg:w-[44%]">
             <img
               loading="lazy"
               src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739904150/qi2nacxd106x8pqnq6uu.png"
-              className="object-contain w-full aspect-[0.86] max-md:mt-10 max-md:max-w-full"
+              className="object-contain w-full aspect-[0.86] rounded-lg "
               alt="Profile"
             />
           </div>
-          <div className="ml-5 w-[56%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col items-start mt-7 w-full max-md:mt-10 max-md:max-w-full">
-              <h1 className="text-4xl font-semibold leading-none text-[#80db66] tracking-[12.96px]">
-                ABOUT ME
+
+          {/* Content Section */}
+          <div className="w-full md:w-7/12 lg:w-[56%]">
+            <div className="flex flex-col items-start">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#80db66] tracking-[8px] sm:tracking-[10px] lg:tracking-[12.96px] uppercase">
+                About Me
               </h1>
-              <h2 className="mt-5 text-6xl font-semibold text-[#2E2E37] leading-[60px] max-md:max-w-full max-md:text-4xl max-md:leading-10">
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2E2E37] leading-tight sm:leading-snug lg:leading-[60px]">
                 Building Seamless & Scalable Digital Solutions
               </h2>
-              <p className="self-stretch mt-9 text-2xl text-[#4D4D5C] max-md:mr-2 max-md:max-w-full">
+              <p className="mt-6 text-base sm:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">
                 I'm a UI/UX Designer and Full Stack Developer passionate about designing intuitive user experiences and
                 building scalable web solutions. My journey began with cloning platforms like Amazon and YouTube,
                 refining my frontend skills. Over time, I expanded into backend development, working on full-stack
                 projects like TRAZEX11 and QuadFusion blending creativity with functionality.
               </p>
-              <section className="self-stretch mt-9 w-full max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col">
-                  <div className="w-[46%] max-md:ml-0 max-md:w-full">
-                    <dl className="flex grow gap-5 justify-between text-2xl text-[#4D4D5C] max-md:mt-10">
-                      <div className="flex flex-col items-start font-semibold whitespace-nowrap">
-                        <dt>Name</dt>
-                        <dt className="mt-2">Age</dt>
-                        <dt className="self-stretch mt-2">Address</dt>
-                      </div>
-                      <div className="flex flex-col items-start">
-                        <dd>Mayank Dudhatra</dd>
-                        <dd className="mt-2">18 Years</dd>
-                        <dd className="mt-2">Ahemdabad</dd>
-                      </div>
+
+              {/* Info Section */}
+              <section className="mt-8 w-full">
+                <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
+                  {/* Left Column */}
+                  <div className="w-full sm:w-1/2">
+                    <dl className="grid grid-cols-2 gap-y-3 text-base sm:text-lg lg:text-2xl text-[#4D4D5C]">
+                      <dt className="font-semibold">Name</dt>
+                      <dd>Mayank Dudhatra</dd>
+                      <dt className="font-semibold">Age</dt>
+                      <dd>18 Years</dd>
+                      <dt className="font-semibold">Address</dt>
+                      <dd>Ahemdabad</dd>
                     </dl>
                   </div>
-                  <div className="ml-5 w-[54%] max-md:ml-0 max-md:w-full">
-                    <dl className="flex flex-col w-full text-[#4D4D5C] max-md:mt-10">
-                      <div className="flex gap-8">
-                        <div className="text-2xl font-semibold whitespace-nowrap">
-                          <dt className="max-md:mr-1">E-Mail</dt>
-                          <dt className="mt-2">Phone</dt>
-                        </div>
-                        <div className="flex flex-col grow shrink-0 self-start basis-0 w-fit">
-                          <dd className="text-xl break-all max-md:break-words">mayankdudhatracg@gmail.com</dd>
-                          <dd className="self-start mt-3 text-2xl">+91 8155814237</dd>
-                        </div>
+
+                  {/* Right Column */}
+                  <div className="w-full sm:w-1/2">
+                    <dl className="space-y-3 text-base sm:text-lg lg:text-2xl text-[#4D4D5C]">
+                      <div className="flex gap-4">
+                        <dt className="font-semibold whitespace-nowrap">E-Mail</dt>
+                        <dd className="text-sm sm:text-base lg:text-xl break-all">
+                          mayankdudhatracg@gmail.com
+                        </dd>
                       </div>
-                      <div className="flex gap-8 self-start mt-2 text-2xl whitespace-nowrap">
-                        <dt className="font-semibold basis-auto">Nationality</dt>
+                      <div className="flex gap-4">
+                        <dt className="font-semibold whitespace-nowrap">Phone</dt>
+                        <dd>+91 8155814237</dd>
+                      </div>
+                      <div className="flex gap-4">
+                        <dt className="font-semibold whitespace-nowrap">Nationality</dt>
                         <dd>Indian</dd>
                       </div>
                     </dl>
@@ -381,16 +385,31 @@ function Aboutme() {
                 </div>
               </section>
 
-              <div className="flex gap-10 mt-9 max-w-full font-semibold w-[474px]">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/122dbb8d77ee6be98e039605b7778fed68ad6746969e2b1b281318392c4a9fd9?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
-                  className="object-contain shrink-0 max-w-full aspect-[2.44] w-[149px]"
-                  alt="Signature"
-                />
-                <div className="flex flex-auto gap-4 self-start mt-1.5">
-                  <p className="grow text-2xl text-black">Mayank Dudhatra</p>
-                  <p className="text-base text-black">--- CSE</p>
+              {/* Signature Section - Optimized for Laptop */}
+              <div className="mt-8 w-full">
+                {/* Show this version only on laptop screens (lg: 1024px - 1440px) */}
+                <div className="hidden lg:flex xl:hidden gap-6 items-center">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/122dbb8d77ee6be98e039605b7778fed68ad6746969e2b1b281318392c4a9fd9?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
+                    className="object-contain w-[149px] aspect-[2.44] rounded-md shadow-sm"
+                    alt="Signature"
+                  />
+                  <div className="flex gap-4 items-center">
+                    <p className="text-2xl font-semibold text-black">Mayank Dudhatra</p>
+                    <p className="text-base text-black">--- CSE</p>
+                  </div>
+                </div>
+
+                {/* Simplified version for mobile, tablet, and larger desktops */}
+                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center lg:hidden xl:flex">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/122dbb8d77ee6be98e039605b7778fed68ad6746969e2b1b281318392c4a9fd9?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072"
+                    className="object-contain w-[100px] sm:w-[120px] aspect-[2.44] rounded-md"
+                    alt="Signature"
+                  />
+                  <p className="text-lg sm:text-xl font-semibold text-black">Mayank Dudhatra --- CSE</p>
                 </div>
               </div>
             </div>
@@ -400,6 +419,7 @@ function Aboutme() {
     </>
   );
 }
+
 
 function Runningline() {
   return (
