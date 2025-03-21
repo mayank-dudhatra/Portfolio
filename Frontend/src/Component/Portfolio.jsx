@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Skill from './Skill'
 
 // Navbar Component
 function Navbar({ isScrolled, activeSection }) {
@@ -671,30 +672,30 @@ function Myeducation() {
 
 function Service() {
   return (
-    <div className="bg-[#25262f] p-6 md:p-20 py-16 md:py-32 text-center">
-      <div className="text-[#80db66] font-jost text-[24px] md:text-[36px] font-medium tracking-[4px] md:tracking-[10px] uppercase">
+    <div className="bg-[#25262f] px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16 md:py-24 lg:py-32 text-center">
+      <div className="text-[#80db66] font-jost text-lg sm:text-xl md:text-2xl lg:text-[36px] font-medium tracking-[2px] sm:tracking-[3px] md:tracking-[6px] lg:tracking-[10px] uppercase">
         Service
       </div>
-      <div className="text-white font-jost font-semibold text-[32px] md:text-[55px] mt-2 pb-4 md:pb-8">
+      <div className="text-white font-jost font-semibold text-xl sm:text-2xl md:text-4xl lg:text-[55px] mt-2 pb-4 sm:pb-6 md:pb-8">
         What I Offer
       </div>
-      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-y-10 md:gap-x-40 mt-6 md:mt-10 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-10 mt-6 sm:mt-8 md:mt-10 max-w-7xl mx-auto px-4 sm:px-0">
         {services.map((service, index) => (
           <div
             key={index}
-            className="flex flex-col md:flex-row gap-4 md:gap-5 p-4 md:p-6 bg-white rounded-xl w-full md:w-[650px] h-auto md:h-[260px]"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-5 p-4 sm:p-5 md:p-6 bg-white rounded-xl w-full max-w-[650px] min-h-[180px] sm:min-h-[200px]"
           >
             <img
               loading="lazy"
               src={service.image}
               alt={service.title}
-              className="object-contain w-[60px] md:w-[72px] h-[60px] md:h-[72px] self-start md:self-center"
+              className="object-contain w-12 sm:w-14 md:w-16 lg:w-[72px] h-12 sm:h-14 md:h-16 lg:h-[72px] self-start sm:self-center flex-shrink-0"
             />
-            <div className="text-left">
-              <h2 className="text-[24px] md:text-[35px] pl-4 md:pl-8 font-jost text-[#2e2e37] font-semibold">
+            <div className="text-left flex-1">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[35px] pl-0 sm:pl-4 md:pl-6 lg:pl-8 font-jost text-[#2e2e37] font-semibold">
                 {service.title}
               </h2>
-              <p className="mt-2 md:mt-8 text-[16px] md:text-[22px] pl-4 md:pl-8 font-jost text-[#4d4d5c]">
+              <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-8 text-sm sm:text-base md:text-lg lg:text-[22px] pl-0 sm:pl-4 md:pl-6 lg:pl-8 font-jost text-[#4d4d5c]">
                 {service.description}
               </p>
             </div>
@@ -861,6 +862,3 @@ function Contactus() {
   );
 }
 
-function Skill() {
-  return <div>Skill Component Placeholder</div>;
-}

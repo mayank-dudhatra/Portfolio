@@ -79,7 +79,7 @@ const CircularProgress = ({ percentage, skillName }) => {
                   applying them in real-world scenarios.
                 </p>
               </div>
-              <h1 className="mt-16 text-[#e2ecf6] text-[250px] max-md:text-[80px] max-md:mt-6 max-md:max-w-full max-md:hidden">
+              <h1 className="mt-16 text-[#e2ecf6] -mb-24 text-[250px] max-md:text-[80px] max-md:mt-6 max-md:max-w-full max-md:hidden">
                 Skills
               </h1>
             </section>
