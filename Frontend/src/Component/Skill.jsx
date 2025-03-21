@@ -95,7 +95,7 @@ const CircularProgress = ({ percentage, skillName }) => {
                     className="flex flex-col text-2xl font-semibold text-black items-center"
                   >
                     <div className="flex relative flex-col px-16 aspect-square max-md:px-6">
-                      <CircularProgress percentage={skill.percentage} />
+                      <CircularProgress  percentage={skill.percentage} />
                       <span className="text-center font-jost text-[#2e2e37] font-semibold mt-6 text-[25px] max-md:text-[20px]">
                         {skill.name}
                       </span>
