@@ -155,6 +155,8 @@ export default function HeroSection() {
       <section id="Contactus">
         <Contactus />
       </section>
+
+      
     </>
   );
 }
@@ -429,6 +431,9 @@ function Runningline() {
         <h1 className="stroke-text marquee mt-40 mb-40 text-[96px] font-semibold leading-none tracking-[12.96px]">
           <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
           <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
+          <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
+          <span>I’M OPEN FOR NEW PROJECTS * LET’S WORK TOGETHER.</span>
+
         </h1>
       </div>
     </>
@@ -598,6 +603,79 @@ function Work() {
   );
 }
 
+// function Myeducation() {
+//   return (
+//     <section className="py-12 px-6 mt-60 rounded-lg">
+//       <div className="mx-auto flex gap-10 items-center lg:flex-row flex-col">
+//         <div className="lg:w-[60%] w-full">
+//           <header>
+//             <h3 className="leading-none text-[#80db66] tracking-[12.96px] text-[36px] font-semibold max-md:text-[28px] max-md:tracking-[8px]">
+//               EDUCATION
+//             </h3>
+//             <h1 className="text-[55px] font-jost text-[#2e2e37] font-semibold mt-2 max-md:text-[40px]">My Education</h1>
+//             <p className="mt-4 text-lg text-[#4d4d5c] max-md:text-base">
+//               I am currently pursuing a Bachelor of Technology in Computer Science Engineering, enhancing my skills in
+//               Full Stack Development, UI/UX Design, and Web Technologies to create seamless and scalable digital
+//               solutions.
+//             </p>
+//           </header>
+
+//           <div className="mt-8 space-y-6">
+//             <div className="flex items-start gap-6 rounded-lg flex-col md:flex-row">
+//               <img
+//                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec"
+//                 alt="icon"
+//                 className="w-12 h-12"
+//               />
+//               <div>
+//                 <h2 className="text-[34px] font-semibold text-[#2e2e37] max-md:text-[28px]">
+//                   Higher Secondary Certificate
+//                 </h2>
+//                 <p className="text-[20px] text-[#2e2e37] font-semibold max-md:text-[18px]">
+//                   Alpha Vidhya Sankul, Junagadh <span className="text-[#4d4d5c]">(2022 - 2024)</span>
+//                 </p>
+//                 <p className="text-[#4d4d5c] mt-4 text-[22px] max-md:text-[18px]">
+//                   Successfully completed Higher Secondary Education, building a strong academic foundation before
+//                   transitioning into the field of technology.
+//                 </p>
+//               </div>
+//             </div>
+
+//             <div className="flex items-start gap-6 rounded-lg flex-col md:flex-row">
+//               <img
+//                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec"
+//                 alt="icon"
+//                 className="w-12 h-12"
+//               />
+//               <div>
+//                 <h2 className="text-[34px] font-semibold text-[#2e2e37] max-md:text-[28px]">
+//                   Bachelor of Technology in CSE
+//                 </h2>
+//                 <p className="text-[20px] text-[#2e2e37] font-semibold max-md:text-[18px]">
+//                   Rai University <span className="text-gray-500">(2024 - 2028)</span>
+//                 </p>
+//                 <p className="text-[#4d4d5c] mt-4 text-[22px] max-md:text-[18px]">
+//                   Gaining expertise in Full Stack Development, UI/UX Design, and Web Technologies, with a strong focus on
+//                   creating user-centric and scalable solutions.
+//                   <p>In Sem-1 I Got 9.76CGPA</p>
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         <aside className="lg:w-[40%] w-full mt-8 lg:mt-0">
+//           <img
+//             src="https://shthemes.net/demosd/thames/wp-content/uploads/2024/08/education-img.jpg"
+//             alt="Education Illustration"
+//             className="w-full rounded-lg shadow-lg"
+//           />
+//         </aside>
+//       </div>
+//     </section>
+//   );
+// }
+
 function Myeducation() {
   return (
     <section className="py-12 px-6 mt-60 rounded-lg">
@@ -616,6 +694,7 @@ function Myeducation() {
           </header>
 
           <div className="mt-8 space-y-6">
+            {/* Higher Secondary Certificate */}
             <div className="flex items-start gap-6 rounded-lg flex-col md:flex-row">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec"
@@ -630,12 +709,15 @@ function Myeducation() {
                   Alpha Vidhya Sankul, Junagadh <span className="text-[#4d4d5c]">(2022 - 2024)</span>
                 </p>
                 <p className="text-[#4d4d5c] mt-4 text-[22px] max-md:text-[18px]">
-                  Successfully completed Higher Secondary Education, building a strong academic foundation before
-                  transitioning into the field of technology.
+                  Successfully completed Higher Secondary Education, building a strong academic foundation before transitioning into the field of technology.
+                </p>
+                <p className="mt-2 text-[22px] font-semibold text-[#2e2e37] max-md:text-[18px]">
+                  Scored: <strong className="text-[#80db66]">81.73%</strong>
                 </p>
               </div>
             </div>
 
+            {/* Bachelor of Technology in CSE */}
             <div className="flex items-start gap-6 rounded-lg flex-col md:flex-row">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/50ba0099ed7733ab73ed996ad6424497f0e8cceb72a7d0c056983f1f03d740ec"
@@ -653,6 +735,9 @@ function Myeducation() {
                   Gaining expertise in Full Stack Development, UI/UX Design, and Web Technologies, with a strong focus on
                   creating user-centric and scalable solutions.
                 </p>
+                <p className="mt-2 text-[22px] font-semibold text-[#2e2e37] max-md:text-[18px]">
+                  Current CGPA: <strong className="text-[#80db66]">9.76</strong>
+                </p>
               </div>
             </div>
           </div>
@@ -669,6 +754,7 @@ function Myeducation() {
     </section>
   );
 }
+
 
 function Service() {
   return (
@@ -777,6 +863,7 @@ function Contactus() {
   };
 
   return (
+    <>
     <div className="py-16 px-5 mt-32 max-w-7xl mx-auto">
       <h3 className="text-[#80db66] font-jost text-center font-semibold text-xl uppercase tracking-[10px]">
         Contact Me
@@ -859,6 +946,43 @@ function Contactus() {
         </form>
       </div>
     </div>
+
+
+    <div className="flex justify-center items-center mt-6">
+  <div className="grid grid-cols-4 gap-4 p-4">
+    {[
+      {
+        href: "https://github.com/mayank-dudhatra",
+        imgSrc: "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739897857/arwcxchywugmmwhhoyfb.png",
+        alt: "GitHub",
+      },
+      {
+        href: "https://www.linkedin.com/in/mayank-dudhatra-cg/",
+        imgSrc: "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739897906/pjr9ozwfpkydjume90jc.png",
+        alt: "LinkedIn",
+      },
+      {
+        href: "https://x.com/cg_mayank",
+        imgSrc: "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739897781/mrqilasxjzcnv4apdpb8.png",
+        alt: "Twitter",
+      },
+      {
+        href: "https://leetcode.com/u/mayank_dudhatra_06/",
+        imgSrc: "https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739897949/wbww9wmzmsj4vryaaiiv.png",
+        alt: "Leetcode",
+      },
+    ].map((social, index) => (
+      <a key={index} href={social.href} target="_blank" rel="noopener noreferrer">
+        <div className="w-16 h-16 rounded-[10px] border border-[#ccd3d9] flex items-center justify-center transition-all duration-300 hover:rotate-180 hover:bg-[#80db66] hover:scale-110">
+          <img src={social.imgSrc} alt={social.alt} className="w-7 transition-all duration-300" />
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+
+
+    </>
   );
 }
-
