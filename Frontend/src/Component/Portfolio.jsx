@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Skill from './Skill'
+  import Loader1 from './Loader.jsx'
 
+  
 // Navbar Component
 function Navbar({ isScrolled, activeSection }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,37 +87,116 @@ function Navbar({ isScrolled, activeSection }) {
 }
 
 // Rest of the components remain unchanged; integrating Navbar into HeroSection
+// export default function HeroSection() {
+//   const [isScrolled, setIsScrolled] = useState(false);
+//   const [activeSection, setActiveSection] = useState("Home");
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (window.scrollY > 100) {
+//         setIsScrolled(true);
+//       } else {
+//         setIsScrolled(false);
+//       }
+
+//       if (window.scrollY < 50) {
+//         setActiveSection("Home");
+//       }
+//     };
+
+//     const sections = document.querySelectorAll("section");
+//     const options = {
+//       root: null,
+//       rootMargin: "0px",
+//       threshold: 0.3,
+//     };
+
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           setActiveSection(entry.target.id);
+//         }
+//       });
+//     }, options);
+
+//     sections.forEach((section) => observer.observe(section));
+//     window.addEventListener("scroll", handleScroll);
+
+//     return () => {
+//       sections.forEach((section) => observer.unobserve(section));
+//       window.removeEventListener("scroll", handleScroll);
+//     };
+//   }, []);
+
+//   return (
+//     <>
+    
+//       <div
+//         id="Home"
+//         className="bg-cover pb-10 bg-center bg-[url('https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739889585/bkqz5lacwtir0dtytkab.png')]"
+//       >
+//         <Navbar isScrolled={isScrolled} activeSection={activeSection} />
+//         <MainSection />
+//       </div>
+
+//       <Cards />
+//       <section id="Aboutme">
+//         <Aboutme />
+//       </section>
+//       <Runningline />
+//       <section id="Work">
+//         <Work />
+//       </section>
+//       <Myeducation />
+//       <Runningline />
+//       <section id="Skill">
+//         <Skill />
+//       </section>
+//       <section id="Service">
+//         <Service />
+//       </section>
+//       <section id="Contactus">
+//         <Contactus />
+//       </section>
+
+      
+//     </>
+//   );
+// }
+
+
+import { motion } from "framer-motion";
+
+
 export default function HeroSection() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    // Show loader for 5 seconds before showing content
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
 
-      if (window.scrollY < 50) {
-        setActiveSection("Home");
-      }
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+      if (window.scrollY < 50) setActiveSection("Home");
     };
 
     const sections = document.querySelectorAll("section");
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.3 }
+    );
 
     sections.forEach((section) => observer.observe(section));
     window.addEventListener("scroll", handleScroll);
@@ -126,8 +207,17 @@ export default function HeroSection() {
     };
   }, []);
 
+  // Show loader for 5 seconds before rendering main content
+  if (isLoading) {
+    return <Loader1 />;
+  }
+
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+    >
       <div
         id="Home"
         className="bg-cover pb-10 bg-center bg-[url('https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739889585/bkqz5lacwtir0dtytkab.png')]"
@@ -155,11 +245,10 @@ export default function HeroSection() {
       <section id="Contactus">
         <Contactus />
       </section>
-
-      
-    </>
+    </motion.div>
   );
 }
+
 
 // Including other components for completeness (unchanged)
 function MainSection() {
@@ -312,7 +401,7 @@ function Cards() {
           />
         </div>
 
-        <div className="hidden md:block absolute bottom-0 right-0 text-[100px] md:text-[200px] font-bold text-[#F0F7FE] leading-none">
+        <div className="hidden md:block absolute -bottom-8 right-0 text-[100px] md:text-[200px] font-bold text-[#F0F7FE] leading-none">
           Mayank
         </div>
       </div>
