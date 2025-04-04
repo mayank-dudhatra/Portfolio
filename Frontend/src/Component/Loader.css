@@ -1,0 +1,22 @@
+@keyframes moveCircle {
+    0% {
+      transform: translateX(-10%);
+    }
+    50% {
+      transform: translateX(330%);
+    }
+    100% {
+      transform: translateX(-10%);
+    }
+  }
+  
+  .animate-moveCircle {
+    animation: moveCircle 5s ease-in-out infinite;
+  }
+  
+  .mask-container {
+    mix-blend-mode: difference; /* This now applies only to the text */
+    clip-path: inset(0 0 0 0); /* Keeps the circle effect inside text */
+    pointer-events: none;
+  }
+  
