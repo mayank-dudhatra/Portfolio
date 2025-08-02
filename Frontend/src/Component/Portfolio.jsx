@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Skill from './Skill'
+import Veticle from './Verticle.jsx'
   import Loader1 from './Loader.jsx'
 
   
@@ -58,12 +59,18 @@ function Navbar({ isScrolled, activeSection }) {
           isMenuOpen ? "block" : "hidden"
         } absolute top-full left-0 w-full bg-black bg-opacity-90 flex flex-col items-center gap-6 py-6 text-[18px] font-medium transition-all duration-300 md:hidden`}
       >
-        <div className={activeSection === "Home" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
-          Home
-        </div>
-        <div className={activeSection === "Aboutme" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
-          About
-        </div>
+       <a href="#Home">
+  <div className={activeSection === "Home" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
+    Home
+  </div>
+</a>
+
+        <a href="#Aboutme">
+  <div className={activeSection === "Aboutme" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
+    About
+  </div>
+</a>
+
         <div className={activeSection === "Work" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
           Work
         </div>
@@ -165,6 +172,9 @@ function Navbar({ isScrolled, activeSection }) {
 // }
 
 
+
+
+
 import { motion } from "framer-motion";
 
 
@@ -232,6 +242,16 @@ export default function HeroSection() {
       </section>
       <Runningline />
       <section id="Work">
+        <Veticle  data={[
+
+  {
+    title: "UI/UX Intern – Eduztrik",
+    content: <p  className=" md:text-lg lg:text-2xl text-[#4D4D5C]  leading-relaxed space-y-2" > Designed user-friendly interfaces for Eduztrik’s document scanning platform. Created wireframes and Figma prototypes, focusing on clean layouts and smooth navigation across student, teacher, and institute dashboards.</p>,
+},
+  {
+    title: "UI/UX & Full Stack Developer Intern – NeoRachna",
+    content: <p  className=" md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed space-y-2" >Designed and developed an intuitive event management platform with a focus on clean UI/UX and responsive design. Built reusable components, handled both frontend and backend features, and ensured seamless user interactions across the platform.</p>,
+  },]} />
         <Work />
       </section>
       <Myeducation />
@@ -408,6 +428,8 @@ function Cards() {
     </>
   );
 }
+
+
 
 function Aboutme() {
   return (
@@ -587,7 +609,7 @@ function Work() {
     selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <section className="flex flex-col rounded-none p-4 max-md:px-2 relative">
+    <section className="flex flex-col rounded-none p-4 mt-28 max-md:px-2 relative">
       <header className="text-center">
         <h1 className="text-4xl font-semibold text-[#88db66] tracking-widest max-md:text-3xl">PORTFOLIO</h1>
         <h2 className="font-jost mt-4 text-6xl font-semibold text-[#2e2e37] max-md:text-3xl">My Recent Works</h2>
