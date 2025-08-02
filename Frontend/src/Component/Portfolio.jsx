@@ -44,13 +44,14 @@ function Navbar({ isScrolled, activeSection }) {
         <div className={activeSection === "Work" ? "text-[#80db66]" : "hover:text-[#80db66] transition-colors"}>Work</div>
         <div className={activeSection === "Service" ? "text-[#80db66]" : "hover:text-[#80db66] transition-colors"}>Service</div>
         <div className={activeSection === "Contactus" ? "text-[#80db66]" : "hover:text-[#80db66] transition-colors"}>Contact Us</div>
-        <a
-          href="/Mayank_Dudhatra.pdf"
-          download="Mayank_Dudhatra_Resume.pdf"
-          className="px-3 py-2 lg:px-4 lg:py-2 border border-[#80db66] text-white rounded-lg hover:bg-[#80db66] hover:text-white transition"
+          <a
+            href="https://drive.google.com/uc?export=download&id=16RezKoXaEGv_E8y1di4ZrBI-nUZQKL25"
+            download="Mayank_Dudhatra_Resume.pdf"
+            className="px-4 py-2 border border-[#80db66] text-white rounded-lg hover:bg-[#80db66] hover:text-white transition"
+            onClick={toggleMenu}
         >
-          Download CV
-        </a>
+                Download Resume
+          </a>
       </div>
 
       {/* Mobile Menu */}
@@ -80,14 +81,16 @@ function Navbar({ isScrolled, activeSection }) {
         <div className={activeSection === "Contactus" ? "text-[#80db66]" : ""} onClick={toggleMenu}>
           Contact Us
         </div>
-        <a
-          href="/Mayank_Dudhatra.pdf"
-          download="Mayank_Dudhatra_Resume.pdf"
-          className="px-4 py-2 border border-[#80db66] text-white rounded-lg hover:bg-[#80db66] hover:text-white transition"
-          onClick={toggleMenu}
-        >
-          Download CV
-        </a>
+<a
+  href="https://drive.google.com/uc?export=download&id=16RezKoXaEGv_E8y1di4ZrBI-nUZQKL25"
+  download="Mayank_Dudhatra_Resume.pdf"
+  className="px-4 py-2 border border-[#80db66] text-white rounded-lg hover:bg-[#80db66] hover:text-white transition"
+  onClick={toggleMenu}
+>
+  Download Resume
+</a>
+
+
       </div>
     </nav>
   );
