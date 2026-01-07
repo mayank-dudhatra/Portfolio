@@ -31,9 +31,9 @@ export default function Hero({ isScrolled, activeSection }) {
 
   return (
     <>
-      <div id="Home" className="bg-cover pb-10 bg-center bg-[url('https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739889585/bkqz5lacwtir0dtytkab.png')]">
+      <div id="Home" className="bg-cover pb-14 bg-center bg-[url('https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739889585/bkqz5lacwtir0dtytkab.png')]">
       <Navbar isScrolled={isScrolled} activeSection={activeSection} />
-      <div className="flex flex-col items-center justify-center md:flex-row md:justify-evenly px-4 md:px-0">
+      <div className="flex pt-12 flex-col items-center justify-center md:flex-row md:justify-evenly px-4 md:px-0">
         <div className="flex flex-col items-center justify-center pt-12 h-full md:flex-row md:justify-between w-full">
           <div className="ml-4 md:ml-10 text-center md:text-left">
             <p className="text-[#80db66] text-[28px] md:text-[36px] font-jost leading-[1.3] tracking-[4px] md:tracking-[7px] font-medium">

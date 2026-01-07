@@ -7,6 +7,7 @@ import Navbar from './components/layout/Navbar';
 import Cards from './components/ui/Cards';
 import Runningline from './components/ui/RunningLine';
 import Skill from './components/ui/Skill';
+import Certification from './components/sections/Certification'; // Import the new file
 import Verticle from './components/ui/Verticle';
 
 // Sections
@@ -99,6 +100,8 @@ function App() {
       <section id="Skill">
         <Skill />
       </section>
+
+      <Certification />
 
       <section id="Service">
         <Service />
