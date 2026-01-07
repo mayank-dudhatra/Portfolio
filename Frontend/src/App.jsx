@@ -40,7 +40,7 @@ function App() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { root: null, rootMargin: "0px", threshold: 0.3 }
+      { root: null, rootMargin: "-10% 0px -70% 0px", threshold: 0 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -59,17 +59,24 @@ function App() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, ease: "easeOut" }}
     >
-      <Hero isScrolled={isScrolled} activeSection={activeSection} />
+      <Navbar isScrolled={isScrolled} activeSection={activeSection} />
+
+      <section id="Home">
+        <Hero isScrolled={isScrolled} activeSection={activeSection} />
+      </section>
 
       <Cards />
 
+      {/* Grouped About and Education */}
       <section id="Aboutme">
         <Aboutme />
+        <Myeducation />
       </section>
 
       <Runningline />
 
-      <section id="Work">
+      {/* Experience Section */}
+      <section id="Experience">
         <Verticle data={[
           {
             title: "UI/UX Intern – Eduztrik",
@@ -80,10 +87,12 @@ function App() {
             content: <p className="md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">Designed and developed an intuitive...</p>,
           }
         ]} />
-        <Work />
       </section>
 
-      <Myeducation />
+      {/* Projects Section (using the Work component) */}
+      <section id="Work">
+        <Work />
+      </section>
       
       <Runningline />
 
