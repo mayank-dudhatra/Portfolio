@@ -1,16 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+
+// Layout & UI
+import MayankLoader from './components/layout/Loader';
+import Navbar from './components/layout/Navbar';
+import Cards from './components/ui/Cards';
+import Runningline from './components/ui/RunningLine';
+import Skill from './components/ui/Skill';
+import Verticle from './components/ui/Verticle';
+
+// Sections
+import Hero from './components/sections/Hero';
+import Aboutme from './components/sections/AboutMe';
+import Work from './components/sections/Work';
+import Myeducation from './components/sections/MyEducation';
+import Service from './components/sections/Service';
+import Contactus from './components/sections/ContactUs';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+      if (window.scrollY < 50) setActiveSection("Home");
+    };
+
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.3 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  if (isLoading) return <MayankLoader />;
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+    >
+      <Hero isScrolled={isScrolled} activeSection={activeSection} />
+
+      <Cards />
+
+      <section id="Aboutme">
+        <Aboutme />
+      </section>
+
+      <Runningline />
+
+      <section id="Work">
+        <Verticle data={[
+          {
+            title: "UI/UX Intern – Eduztrik",
+            content: <p className="md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">Designed user-friendly interfaces...</p>,
+          },
+          {
+            title: "UI/UX & Full Stack Developer Intern – NeoRachna",
+            content: <p className="md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">Designed and developed an intuitive...</p>,
+          }
+        ]} />
+        <Work />
+      </section>
+
+      <Myeducation />
       
-    </>
-  )
+      <Runningline />
+
+      <section id="Skill">
+        <Skill />
+      </section>
+
+      <section id="Service">
+        <Service />
+      </section>
+
+      <section id="Contactus">
+        <Contactus />
+      </section>
+    </motion.div>
+  );
 }
 
-export default App
+export default App;
