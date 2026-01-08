@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+// https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=829-3&t=RfkxXVmZ9ZQdsZBU-1
 export default function Work() {
   const projects = [
     {
@@ -48,6 +48,39 @@ export default function Work() {
       description:
         "Designed a modern, user-friendly interface for ScanX, a document scanning and comparison platform. The Figma prototype features an intuitive Home Page, seamless User Authentication (Signup/Login), and dedicated pages for Scanning, Comparing, and Managing Documents. The UI ensures easy navigation, interactive file uploads, and a structured My Files section for efficient document storage. Additional pages include Contact Us, FAQs, and Privacy Policy, enhancing user accessibility and support. The design prioritizes clarity, responsiveness, and a professional experience.",
     },
+    {
+    id: 6,
+    category: "UI/UX Design",
+    title: "TRAZEX11 Design",
+    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072", // Replace with your image
+    url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=829-3&t=RfkxXVmZ9ZQdsZBU-1",
+    description: "The UI/UX design phase of TRAZEX11, focusing on a seamless user experience for stock selection, contest participation, and real-time portfolio tracking. Designed with a dark-themed, modern financial aesthetic.",
+  },
+  {
+    id: 7,
+    category: "UI/UX Design",
+    title: "Portfolio Design",
+    imageUrl: "YOUR_PORTFOLIO_DESIGN_IMAGE_URL", // Replace with your image
+    url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=1699-312&t=RfkxXVmZ9ZQdsZBU-1", // Add link if available
+    description: "A comprehensive design project for a personal portfolio, emphasizing clean typography, interactive motion elements, and a professional user interface to showcase developer accomplishments.",
+  },
+  {
+    id: 8,
+    category: "UI/UX Design",
+    title: "CodingGita Web Design",
+    imageUrl: "YOUR_CODINGGITA_IMAGE_URL", // Replace with your image
+    url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=0-1&t=RfkxXVmZ9ZQdsZBU-1", // Add link if available
+    description: "A custom web design for CodingGita, focusing on educational platform architecture, intuitive navigation for students, and a vibrant, engaging aesthetic for tech learners.",
+  },
+  
+    {
+    id: 9,
+    category: "UI/UX Design",
+    title: "Instagram",
+    imageUrl: "YOUR_CODINGGITA_IMAGE_URL", // Replace with your image
+    url: "https://www.figma.com/design/E6bEiKGItd1H4CJyOPvKkQ/Food?node-id=24-2&t=D5CKnHseUq2rqKa7-1", // Add link if available
+    description: "Instagram"
+  }
   ];
 
   const categories = ["All", "Web Development", "Frontend Development", "UI/UX Design"];

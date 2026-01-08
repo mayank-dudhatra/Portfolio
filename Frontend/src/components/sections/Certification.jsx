@@ -10,8 +10,8 @@ import hrNodeImg from '../../assets/certificates/NODEJS Basic.png';
 import hrProblemSolvingImg from '../../assets/certificates/Problem Solving Basic.png';
 import hrCssImg from '../../assets/certificates/CSS Basic.png';
 import sololearnCImg from '../../assets/certificates/Introduction-to-c.jpg';
-import azureSeminarImg from '../../assets/certificates/Introduction-to-c.jpg';
-import azureServicesImg from '../../assets/certificates/Introduction-to-c.jpg';
+import azureSeminarImg from '../../assets/certificates/Introduction to Azure Basic.jpg';
+import azureServicesImg from '../../assets/certificates/Azure-Certificate.png';
 import leetcode50Img from '../../assets/Fifty.png';
 import leetcode100Img from '../../assets/Hundreded.png';
 
@@ -29,6 +29,18 @@ const certificates = [
     platform: "Eduztrik",
     image: eduztrikLOrImg,
     link: "https://drive.google.com/file/d/1DLMOc-BLSNec45BAB_Tp7SIqd8lk-zzU/view?usp=sharing",
+  },
+    {
+    title: "Azure Fundamentals",
+    platform: "SkillupLearn",
+    image: azureSeminarImg,
+    link: "https://drive.google.com/file/d/1Qk909PHcm0vpA-Gh5W2mCTsdbCDUzGcG/view?usp=sharing",
+  },
+  {
+    title: "Azure Services Basic",
+    platform: "SkillupLearn",
+    image: azureServicesImg,
+    link: "https://drive.google.com/file/d/17qhiJJKLttF1nXLEWWBqwmwR8CTYiKLd/view?usp=sharing",
   },
   {
     title: "Frontend Developer (Software Engineer)",
@@ -71,18 +83,6 @@ const certificates = [
     platform: "Sololearn",
     image: sololearnCImg,
     link: "https://www.sololearn.com/certificates/CC-XOOBKQQG",
-  },
-  {
-    title: "Azure Fundamentals",
-    platform: "Seminar",
-    image: azureSeminarImg,
-    link: "#",
-  },
-  {
-    title: "Azure Services Basic",
-    platform: "Seminar",
-    image: azureServicesImg,
-    link: "#",
   },
   {
     title: "50+ Days Badge 2025",
