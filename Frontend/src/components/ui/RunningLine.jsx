@@ -37,7 +37,7 @@ const RunningLine = () => {
   });
 
   return (
-    <div className="py-10 overflow-hidden bg-transparent flex flex-col gap-4">
+    <div className="py-20 mt-32 mb-32 overflow-hidden bg-transparent flex flex-col gap-4">
       
       {/* Top Line: Right to Left (Solid Text) */}
       <div className="flex whitespace-nowrap">
@@ -46,7 +46,7 @@ const RunningLine = () => {
           variants={marqueeVariants("left")}
           animate="animate"
         >
-          <span>{row1Text}</span>
+          <span className="mb-10">{row1Text}</span>
           <span>{row1Text}</span>
         </motion.div>
       </div>
