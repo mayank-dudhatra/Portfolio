@@ -55,7 +55,7 @@ export default function Hero({ isScrolled, activeSection }) {
           <div className="block mt-6">
             <img
               src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739995255/b2mdgw25byhsmu3tptje.png"
-              alt="Profile"
+              alt="Mayank Dudhatra - Full Stack Developer"
               className="w-[300px] md:w-[707px] mx-auto"
             />
           </div>
