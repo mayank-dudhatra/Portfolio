@@ -1,0 +1,14 @@
+/* Prerender.io Configuration */
+body._prerender_ready {
+  visibility: visible;
+}
+
+/* Hide content until prerender is ready */
+body:not(._prerender_ready) .prerender-hide {
+  visibility: hidden;
+}
+
+/* Ensure critical content is always visible for SEO */
+.seo-critical {
+  visibility: visible !important;
+}

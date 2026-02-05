@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
+import './prerender.css';
 
 // Layout & UI
 import MayankLoader from './components/layout/Loader';
@@ -23,12 +24,36 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
+  // Prerender detection
+  const isPrerendering = typeof navigator !== 'undefined' && 
+    (navigator.userAgent.toLowerCase().indexOf('prerenderjs') > -1 || 
+     navigator.userAgent.toLowerCase().indexOf('prerender') > -1);
+
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 5000);
+    // Skip loading animation for prerendering
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      // Signal to Prerender that page is ready
+      if (window.prerenderReady === false) {
+        window.prerenderReady = true;
+      }
+    }, isPrerendering ? 0 : 5000);
     return () => clearTimeout(timer);
+  }, [isPrerendering]);
+
+  useEffect(() => {
+    // Set prerender ready flag initially
+    if (typeof window !== 'undefined') {
+      window.prerenderReady = false;
+      // Set prerender token from environment variable
+      window.prerenderToken = import.meta.env.VITE_PRERENDER_TOKEN;
+    }
   }, []);
 
   useEffect(() => {
+    // Skip scroll effects during prerendering
+    if (isPrerendering) return;
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
       if (window.scrollY < 50) setActiveSection("Home");
@@ -50,9 +75,16 @@ function App() {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isPrerendering]);
 
-  if (isLoading) return <MayankLoader />;
+  useEffect(() => {
+    // Add prerender ready class to body when loaded
+    if (!isLoading && typeof document !== 'undefined') {
+      document.body.classList.add('_prerender_ready');
+    }
+  }, [isLoading]);
+
+  if (isLoading && !isPrerendering) return <MayankLoader />;
 
   return (
     <motion.div

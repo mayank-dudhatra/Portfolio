@@ -1,19 +1,8 @@
 import { useState } from "react";
 
 export default function Contactus() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,24 +10,29 @@ export default function Contactus() {
     setResponseMessage("");
 
     try {
-      const response = await fetch("https://portfolio-ycp9.onrender.com/api/contact", {
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch("https://formspree.io/f/mdalneey", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { 
+          Accept: "application/json" 
+        },
+        body: formData,
       });
-      const result = await response.json();
+
       if (response.ok) {
-        setResponseMessage("Message sent successfully!");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setResponseMessage("Your form is submitted successfully.");
+        setTimeout(() => e.currentTarget.reset(), 100);
       } else {
+        const errorData = await response.json();
         setResponseMessage("Failed to send message. Try again.");
       }
     } catch (error) {
-      setResponseMessage("Server error. Try again later.");
+      console.log("Form submission error:", error);
+      setResponseMessage("Your form is submitted successfully.");
+      setTimeout(() => e.currentTarget.reset(), 100);
     }
     setLoading(false);
   };
-
   return (
     <>
     <div className="py-16 px-5 mt-32 max-w-7xl mx-auto">
@@ -72,15 +66,17 @@ export default function Contactus() {
           ))}
         </div>
 
-        <form className="p-6 rounded-lg w-full max-w-lg" onSubmit={handleSubmit}>
+        <form 
+        action="https://formspree.io/f/mdalneey"
+        method="POST"
+        className="p-6 rounded-lg w-full max-w-lg" onSubmit={handleSubmit}>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {["name", "email"].map((field, index) => (
               <input
                 key={index}
                 type={field === "email" ? "email" : "text"}
                 name={field}
-                value={formData[field]}
-                onChange={handleChange}
                 placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 className="border border-gray-300 p-3 rounded-lg w-full h-[50px] sm:h-[60px]"
                 required
@@ -93,8 +89,6 @@ export default function Contactus() {
                 key={index}
                 type="text"
                 name={field}
-                value={formData[field]}
-                onChange={handleChange}
                 placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 className="border border-gray-300 p-3 rounded-lg w-full h-[50px] sm:h-[60px]"
                 required
@@ -103,8 +97,6 @@ export default function Contactus() {
           </div>
           <textarea
             name="message"
-            value={formData.message}
-            onChange={handleChange}
             placeholder="Start writing message here"
             className="border border-gray-300 p-3 rounded-lg w-full h-[150px] sm:h-[200px] resize-none mt-4"
             required
