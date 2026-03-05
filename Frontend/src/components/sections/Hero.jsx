@@ -87,7 +87,7 @@ export default function Hero({ isScrolled, activeSection }) {
             </i>
           </a>
 
-          <a href="https://x.com/cg_mayank" target="_blank" rel="noopener noreferrer" className="inline-block">
+          <a href="https://x.com/Mayank_d_d" target="_blank" rel="noopener noreferrer" className="inline-block">
             <i className="border border-[#ccd3d9] p-3 md:p-4 rounded-[10px] transform hover:rotate-180 hover:bg-[#80db66] hover:scale-110 transition-transform duration-300 flex items-center justify-center">
               <img
                 src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739897781/mrqilasxjzcnv4apdpb8.png"
@@ -111,6 +111,27 @@ export default function Hero({ isScrolled, activeSection }) {
               />
             </i>
           </a>
+
+            <a href="https://www.youtube.com/@mayankdudhatracg" target="_blank" rel="noopener noreferrer" className="inline-block">
+            <i className="border border-[#ccd3d9] p-8 md:p-4 rounded-[10px] transform hover:rotate-180 hover:bg-[#80db66] hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+              <svg
+                width="28"
+                height="20"
+                viewBox="0 0 20 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 md:w-auto"
+              >
+                <path
+                  d="M19.582 2.186c-.23-.866-.908-1.544-1.774-1.774C16.254.2 10 .2 10 .2s-6.254 0-7.808.212c-.866.23-1.544.908-1.774 1.774C.206 3.74.206 7.006.206 7.006s0 3.266.212 4.82c.23.866.908 1.544 1.774 1.774C3.746 13.812 10 13.812 10 13.812s6.254 0 7.808-.212c.866-.23 1.544-.908 1.774-1.774.212-1.554.212-4.82.212-4.82s0-3.266-.212-4.82z"
+                  fill="#ccd3d9"
+                />
+                <path d="M8.001 9.998l5.201-2.998-5.201-2.998v5.996z" fill="#000" />
+              </svg>
+            </i>
+          </a>
+
+
         </div>
       </div>
     </div>

@@ -18,6 +18,7 @@ import Work from './components/sections/Work';
 import Myeducation from './components/sections/MyEducation';
 import Service from './components/sections/Service';
 import Contactus from './components/sections/ContactUs';
+import Experience from './components/sections/Experience';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -110,16 +111,7 @@ function App() {
 
       {/* Experience Section */}
       <section id="Experience">
-        <Verticle data={[
-          {
-            title: "UI/UX Intern – Eduztrik",
-            content: <p className="md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">Designed user-friendly interfaces...</p>,
-          },
-          {
-            title: "UI/UX & Full Stack Developer Intern – NeoRachna",
-            content: <p className="md:text-lg lg:text-2xl text-[#4D4D5C] leading-relaxed">Designed and developed an intuitive...</p>,
-          }
-        ]} />
+        <Experience />
       </section>
 
       {/* Projects Section (using the Work component) */}
