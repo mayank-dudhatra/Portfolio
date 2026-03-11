@@ -1,7 +1,5 @@
 {
   "buildCommand": "cd Frontend && npm run build",
   "installCommand": "cd Frontend && npm install",
-  "outputDirectory": "Frontend/dist",
-  "framework": "vite",
-  "nodeVersion": "20.x"
+  "outputDirectory": "Frontend/dist"
 }
