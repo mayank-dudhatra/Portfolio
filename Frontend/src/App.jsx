@@ -38,7 +38,7 @@ function App() {
       if (window.prerenderReady === false) {
         window.prerenderReady = true;
       }
-    }, isPrerendering ? 0 : 5000);
+    }, isPrerendering ? 0 : 1500);
     return () => clearTimeout(timer);
   }, [isPrerendering]);
 
