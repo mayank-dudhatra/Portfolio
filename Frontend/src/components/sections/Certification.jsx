@@ -2,99 +2,83 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import LazyImage from '../ui/LazyImage';
 
-import eduztrikInternImg from '../../assets/certificates/Mayank-Dudhatra-Eduztrik-Certificate.jpg';
-import eduztrikLOrImg from '../../assets/certificates/Mayank-Dudhatra-Eduztrik-LOR.jpg';
-import hrFrontendImg from '../../assets/certificates/Frontend Developer.png';
-import hrRestApiImg from '../../assets/certificates/REST API Intermidiate.png';
-import hrReactImg from '../../assets/certificates/React Basi.png';
-import hrNodeImg from '../../assets/certificates/NODEJS Basic.png';
-import hrProblemSolvingImg from '../../assets/certificates/Problem Solving Basic.png';
-import hrCssImg from '../../assets/certificates/CSS Basic.png';
-import sololearnCImg from '../../assets/certificates/Introduction-to-c.jpg';
-import azureSeminarImg from '../../assets/certificates/Introduction to Azure Basic.jpg';
-import azureServicesImg from '../../assets/certificates/Azure-Certificate.png';
-import leetcode50Img from '../../assets/Fifty.png';
-import leetcode100Img from '../../assets/Hundreded.png';
-
-
-
 const certificates = [
   {
     title: "Certificate of Internship",
     platform: "Eduztrik",
-    image: eduztrikInternImg, // Use the imported variable
+    image: "/assets/certificates/Mayank-Dudhatra-Eduztrik-Certificate.webp",
     link: "https://drive.google.com/file/d/1oWaK67xihIbHGRdNTwYAi700oyhT7_m6/view?usp=sharing",
   },
   {
     title: "Letter of Recommendation",
     platform: "Eduztrik",
-    image: eduztrikLOrImg,
+    image: "/assets/certificates/Mayank-Dudhatra-Eduztrik-LOR.webp",
     link: "https://drive.google.com/file/d/1DLMOc-BLSNec45BAB_Tp7SIqd8lk-zzU/view?usp=sharing",
   },
-    {
+  {
     title: "Azure Fundamentals",
     platform: "SkillupLearn",
-    image: azureSeminarImg,
+    image: "/assets/certificates/Introduction-to-Azure-Basic.webp",
     link: "https://drive.google.com/file/d/1Qk909PHcm0vpA-Gh5W2mCTsdbCDUzGcG/view?usp=sharing",
   },
   {
     title: "Azure Services Basic",
     platform: "SkillupLearn",
-    image: azureServicesImg,
+    image: "/assets/certificates/Azure-Certificate.webp",
     link: "https://drive.google.com/file/d/17qhiJJKLttF1nXLEWWBqwmwR8CTYiKLd/view?usp=sharing",
   },
   {
     title: "Frontend Developer (Software Engineer)",
     platform: "HackerRank",
-    image: hrFrontendImg,
+    image: "/assets/certificates/Frontend-Developer.webp",
     link: "https://www.hackerrank.com/certificates/iframe/a636aa387192",
   },
   {
     title: "REST API Intermediate",
     platform: "HackerRank",
-    image: hrRestApiImg,
+    image: "/assets/certificates/REST-API-Intermidiate.webp",
     link: "https://www.hackerrank.com/certificates/iframe/67de083eeb71",
   },
   {
     title: "React (Basic)",
     platform: "HackerRank",
-    image: hrReactImg,
+    image: "/assets/certificates/React-Basi.webp",
     link: "https://www.hackerrank.com/certificates/iframe/fadda91619ae",
   },
   {
     title: "Node.js (Basic)",
     platform: "HackerRank",
-    image: hrNodeImg,
+    image: "/assets/certificates/NODEJS-Basic.webp",
     link: "https://www.hackerrank.com/certificates/iframe/5a078bf4c2eb",
   },
   {
     title: "Problem Solving (Basic)",
     platform: "HackerRank",
-    image: hrProblemSolvingImg,
+    image: "/assets/certificates/Problem-Solving-Basic.webp",
     link: "https://www.hackerrank.com/certificates/iframe/620b372dcd60",
   },
   {
     title: "CSS (Basic)",
     platform: "HackerRank",
-    image: hrCssImg,
+    image: "/assets/certificates/CSS-Basic.webp",
     link: "https://www.hackerrank.com/certificates/iframe/eb3ef0087606",
   },
   {
     title: "Introduction to C",
     platform: "Sololearn",
-    image: sololearnCImg,
+    image: "/assets/certificates/Introduction-to-c.webp",
     link: "https://www.sololearn.com/certificates/CC-XOOBKQQG",
   },
   {
     title: "50+ Days Badge 2025",
     platform: "LeetCode",
-    image: leetcode50Img,
+    image: "/assets/Fifty.webp",
     link: "https://leetcode.com/medal/?showImg=0&id=8225196&isLevel=false",
   },
   {
     title: "100+ Days Badge 2025",
     platform: "LeetCode",
-    image: leetcode100Img,
+    image: "/assets/Hundreded.webp",
     link: "https://leetcode.com/medal/?showImg=0&id=8692439&isLevel=false",
   }
 ];

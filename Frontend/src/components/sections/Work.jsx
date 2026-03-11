@@ -274,19 +274,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LazyImage from "../ui/LazyImage";
 
-// Asset Imports
-import portfoliobanner from '../../assets/PORTFOLIO.png';
-import codinggitafigma from '../../assets/CodinggitaFigma.png';
-import walletAppImage from '../../assets/Wallet-App.png';
-import trazex11AppImage from '../../assets/TRAZEX11-Expo.png';
-import stockMasterImage from '../../assets/StockMaster.png';
-import expenseManagementImage from '../../assets/Expense-Managment.png';
-import synergySphereImage from '../../assets/SynergySphere.png';
-import hrmsImage from '../../assets/HRMS.png';
-import trazex11WebImage from '../../assets/TRAZEX11-APP.png';
-import dayflowImage from '../../assets/DayFlow.png';
-import trazex11UIUXImage from '../../assets/TRAZEX11-UIUX.png';
-
 
 export default function Work() {
   const projects = [
@@ -295,8 +282,7 @@ export default function Work() {
     category: "Web Development",
     title: "TRAZEX11",
     tech: "React, Tailwind, Node.js, MongoDB",
-    // imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/143d5d46f85270602bca04c545a9fce6c4748eca7b9c8802589ed4d35417bc78?placeholderIfAbsent=true&apiKey=f5294c2440c849e09806e1501d656072",
-    imageUrl: trazex11WebImage,
+    imageUrl: "/assets/TRAZEX11-APP.webp",
     videoUrl: "https://res.cloudinary.com/dbrb9ptmn/video/upload/v1740980152/so6rxikt0v4vepkjjynw.mp4",
     url: "https://trazex11.netlify.app",
     github: "https://github.com/Mayank-Dudhatra/Trazex11",
@@ -316,7 +302,7 @@ export default function Work() {
     category: "Mobile Development",
     title: "Wallet App",
     tech: "React Native, Expo, PostgreSQL, Clerk",
-    imageUrl: walletAppImage,
+    imageUrl: "/assets/Wallet-App.webp",
     url: "#",
     github: "https://github.com/Mayank-Dudhatra/Wallet-App",
     description: "Wallet is a full-stack mobile expense tracking application built with React Native and Express.js, featuring secure Clerk authentication, real-time balance updates, and cross-platform compatibility for Android and iOS.",
@@ -326,7 +312,7 @@ export default function Work() {
     category: "Mobile Development",
     title: "Trazex11 App",
     tech: "React Native, Expo, Socket.IO, MongoDB",
-    imageUrl: trazex11AppImage,
+    imageUrl: "/assets/TRAZEX11-Expo.webp",
     url: "#",
     description: "TRAZEX11 is a gamified mobile stock market contest platform that transforms stock market learning into an interactive and competitive experience with real-time data, virtual teams, and contest-based gameplay.",
   },
@@ -336,7 +322,7 @@ export default function Work() {
     title: "StockMaster",
     tech: "React, TypeScript, Node.js, MongoDB, Socket.IO",
     platform: "ODOO x SPIT (Online)",
-    imageUrl: stockMasterImage,
+    imageUrl: "/assets/StockMaster.webp",
     url: "#",
     description: "StockMaster is a smart warehouse inventory management system developed during the SPIT College Hackathon to automate stock tracking, multi-warehouse operations, and real-time inventory updates with RBAC and analytics dashboards.",
   },
@@ -345,7 +331,7 @@ export default function Work() {
     category: "Web Development",
     title: "Expense Management",
     tech: "React, TypeScript, Node.js, MongoDB, Socket.IO",
-    imageUrl: expenseManagementImage,
+    imageUrl: "/assets/Expense-Managment.webp",
     url: "#",
     description: "A full-stack multi-tenant expense tracking and reimbursement platform with OCR-based receipt processing, role-based access control, and real-time updates for efficient organizational expense management.",
   },
@@ -355,7 +341,7 @@ export default function Work() {
     title: "SynergySphere",
     tech: "React, TypeScript, Node.js, MongoDB",
     platform: "ODOO x NMIT (Online)",
-    imageUrl: synergySphereImage,
+    imageUrl: "/assets/SynergySphere.webp",
     url: "#",
     description: "SynergySphere is a full-stack project management and collaboration platform with role-based access control, task management, team communication, and project-based chat system for improved team coordination.",
   },
@@ -365,7 +351,7 @@ export default function Work() {
     title: "WorkZen SHRMS",
     tech: "Full Stack, RBAC, Business Logic",
     platform: "ODOO x IITG (Offline)",
-    imageUrl: hrmsImage,
+    imageUrl: "/assets/HRMS.webp",
     url: "#",
     description: "A comprehensive Human Resource Management System engineered with robust Role-Based Access Control and payroll processing.",
   },
@@ -375,7 +361,7 @@ export default function Work() {
     title: "Dayflow",
     tech: "React/Next.js, Node.js, MongoDB, JWT",
     platform: "ODOO x GCET (Online)",
-    imageUrl: dayflowImage,
+    imageUrl: "/assets/DayFlow.webp",
     url: "#",
     description: "Dayflow is a full-stack Human Resource Management System (HRMS) designed to streamline and digitize everyday HR operations with role-based dashboards, attendance tracking, leave management, and payroll visibility.",
   },
@@ -421,7 +407,7 @@ export default function Work() {
     category: "UI/UX Design",
     title: "Portfolio Design",
     tech: "Figma, Interaction Design",
-    imageUrl: portfoliobanner,
+    imageUrl: "/assets/PORTFOLIO.webp",
     url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=1699-312&t=RfkxXVmZ9ZQdsZBU-1",
     description: "A comprehensive design project for a personal portfolio, emphasizing clean typography and interactive motion elements.",
   },
@@ -430,7 +416,7 @@ export default function Work() {
     category: "UI/UX Design",
     title: "TRAZEX11 Design",
     tech: "Figma, FinTech UI, Dark Theme, Responsive Design",
-    imageUrl: trazex11UIUXImage,
+    imageUrl: "/assets/TRAZEX11-UIUX.webp",
     url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=829-3&t=RfkxXVmZ9ZQdsZBU-1",
     description: "The comprehensive UI/UX design phase of TRAZEX11, a stock market fantasy gaming platform. A modern, dark-themed interface designed for seamless stock selection, contest participation, and real-time portfolio tracking.",
   },
@@ -439,7 +425,7 @@ export default function Work() {
     category: "UI/UX Design",
     title: "CodingGita Web",
     tech: "Figma, EdTech Design, Prototyping",
-    imageUrl: codinggitafigma,
+    imageUrl: "/assets/CodinggitaFigma.webp",
     url: "https://www.figma.com/design/5FzaWNrX0zAdTpEXdIXkfj/My-Free?node-id=0-1&t=RfkxXVmZ9ZQdsZBU-1",
     description: "A custom web design for CodingGita, focusing on intuitive navigation for students and an engaging aesthetic for tech learners.",
   },
