@@ -2,7 +2,12 @@ import React from "react";
 import './Loader.css'
 const MayankLoader = () => {
   return (
-    <div className="flex items-center p-4 justify-center min-h-screen bg-black">
+    <div
+      className="flex items-center p-4 justify-center min-h-screen bg-[#25262f] bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://shthemes.net/demosd/thames/wp-content/uploads/2024/08/body-bg-1.jpg')",
+      }}
+    >
       <div className="relative">
         {/* Dark gray text in background */}
         <h1 className="text-8xl font-bold text-gray-700 uppercase absolute inset-0">

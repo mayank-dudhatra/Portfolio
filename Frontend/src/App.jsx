@@ -20,6 +20,8 @@ import Service from './components/sections/Service';
 import Contactus from './components/sections/ContactUs';
 import Experience from './components/sections/Experience';
 
+const HERO_BG_IMAGE = 'https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739889585/bkqz5lacwtir0dtytkab.png';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,15 +33,56 @@ function App() {
      navigator.userAgent.toLowerCase().indexOf('prerender') > -1);
 
   useEffect(() => {
-    // Skip loading animation for prerendering
-    const timer = setTimeout(() => {
+    // Skip loading animation for prerendering.
+    if (isPrerendering) {
       setIsLoading(false);
-      // Signal to Prerender that page is ready
       if (window.prerenderReady === false) {
         window.prerenderReady = true;
       }
-    }, isPrerendering ? 0 : 1500);
-    return () => clearTimeout(timer);
+      return;
+    }
+
+    let isMounted = true;
+    const startedAt = Date.now();
+
+    const finishLoading = () => {
+      if (!isMounted) return;
+
+      // Keep loader visible briefly to avoid abrupt flashes.
+      const elapsed = Date.now() - startedAt;
+      const remaining = Math.max(0, 350 - elapsed);
+
+      setTimeout(() => {
+        if (!isMounted) return;
+        setIsLoading(false);
+        if (window.prerenderReady === false) {
+          window.prerenderReady = true;
+        }
+      }, remaining);
+    };
+
+    const image = new Image();
+    image.loading = 'eager';
+    image.fetchPriority = 'high';
+    image.decoding = 'async';
+    image.src = HERO_BG_IMAGE;
+
+    if (image.complete) {
+      finishLoading();
+    } else {
+      image.onload = finishLoading;
+      image.onerror = finishLoading;
+    }
+
+    // Never block UI for too long on a slow image request.
+    const fallbackTimer = setTimeout(finishLoading, 2500);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(fallbackTimer);
+      image.onload = null;
+      image.onerror = null;
+    };
   }, [isPrerendering]);
 
   useEffect(() => {
