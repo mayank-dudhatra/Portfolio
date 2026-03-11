@@ -1,15 +1,15 @@
 /**
  * Image Optimization Script
  * - Converts PNG/JPG/JPEG → WebP
- * - Resizes to max 1200px width (preserves aspect ratio)
- * - Compresses to target ~100–300 KB
- * - Output: public/assets/  (and public/assets/certificates/)
+ * - Generates responsive variants: 480w, 768w, 1200w
+ * - Generates ultra-light blur placeholder (32w)
+ * - Output: public/assets/ (and public/assets/certificates/)
  *
  * Run: node scripts/optimize-images.mjs
  */
 
 import sharp from 'sharp';
-import { readdir, mkdir } from 'fs/promises';
+import { readdir, mkdir, stat } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -32,18 +32,29 @@ const SOURCES = [
 
 const SUPPORTED = new Set(['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff']);
 
+const RESPONSIVE_WIDTHS = [480, 768, 1200];
+const MAIN_WIDTH = 1200;
+
 const OPTIONS = {
   webp: {
-    quality: 82,      // 82 gives excellent quality at a fraction of the original size
-    effort: 6,        // 0=fast … 6=best compression
+    quality: 82,
+    effort: 6,
     smartSubsample: true,
   },
-  resize: {
-    width: 1200,
-    withoutEnlargement: true, // never upscale smaller images
-    fit: 'inside',
+  blurWebp: {
+    quality: 45,
+    effort: 6,
+    smartSubsample: true,
   },
 };
+
+function resizeOptions(width) {
+  return {
+    width,
+    withoutEnlargement: true,
+    fit: 'inside',
+  };
+}
 
 async function optimizeFile(inputPath, outputDir, filename) {
   const ext = path.extname(filename).toLowerCase();
@@ -52,17 +63,38 @@ async function optimizeFile(inputPath, outputDir, filename) {
   const baseName  = path.basename(filename, ext);
   // Replace spaces with hyphens for clean URLs
   const cleanName = baseName.replace(/\s+/g, '-');
-  const outFile   = path.join(outputDir, `${cleanName}.webp`);
+  const mainOutFile = path.join(outputDir, `${cleanName}.webp`);
 
   try {
-    const info = await sharp(inputPath)
-      .resize(OPTIONS.resize)
-      .webp(OPTIONS.webp)
-      .toFile(outFile);
+    const inputStat = await stat(inputPath);
+    const inputKB = Math.round(inputStat.size / 1024);
 
-    const inputKB  = Math.round((await sharp(inputPath).metadata()).size / 1024) || '?';
-    const outputKB = Math.round(info.size / 1024);
-    console.log(`  ✓ ${filename.padEnd(40)} ${String(inputKB).padStart(6)} KB  →  ${String(outputKB).padStart(5)} KB  (${outFile.replace(ROOT, '').replace(/\\/g, '/')})`);
+    const mainInfo = await sharp(inputPath)
+      .resize(resizeOptions(MAIN_WIDTH))
+      .webp(OPTIONS.webp)
+      .toFile(mainOutFile);
+
+    // Responsive variants for srcset
+    for (const width of RESPONSIVE_WIDTHS) {
+      const variantOut = path.join(outputDir, `${cleanName}-${width}.webp`);
+      await sharp(inputPath)
+        .resize(resizeOptions(width))
+        .webp(OPTIONS.webp)
+        .toFile(variantOut);
+    }
+
+    // Tiny blurred preview placeholder
+    const blurOut = path.join(outputDir, `${cleanName}-blur.webp`);
+    await sharp(inputPath)
+      .resize(resizeOptions(32))
+      .blur(0.4)
+      .webp(OPTIONS.blurWebp)
+      .toFile(blurOut);
+
+    const outputKB = Math.round(mainInfo.size / 1024);
+    console.log(
+      `  ✓ ${filename.padEnd(40)} ${String(inputKB).padStart(6)} KB  →  ${String(outputKB).padStart(5)} KB  (${mainOutFile.replace(ROOT, '').replace(/\\/g, '/')})`
+    );
   } catch (err) {
     console.error(`  ✗ Failed: ${filename} — ${err.message}`);
   }
@@ -93,7 +125,7 @@ async function main() {
     await processDir(src);
   }
   console.log('\n✅ Done! Optimized images saved to public/assets/');
-  console.log('   Import them with: src="/assets/image-name.webp"\n');
+  console.log('   Generated: image.webp, image-480.webp, image-768.webp, image-1200.webp, image-blur.webp\n');
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

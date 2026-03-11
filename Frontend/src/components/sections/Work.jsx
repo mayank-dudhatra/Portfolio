@@ -270,9 +270,24 @@
 //   );
 // }
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LazyImage from "../ui/LazyImage";
+
+function optimizeCloudinaryImage(url, width = 900) {
+  if (!url || !url.includes("res.cloudinary.com") || !url.includes("/image/upload/")) {
+    return url;
+  }
+
+  const transform = `f_auto,q_auto:good,w_${width},c_limit`;
+  return url.replace("/image/upload/", `/image/upload/${transform}/`);
+}
+
+function getOptimizedImageUrl(url, width = 900) {
+  if (!url || url === "YOUR_IMAGE_PATH_HERE") return "/assets/PORTFOLIO.webp";
+  if (url.startsWith("/assets/")) return url;
+  return optimizeCloudinaryImage(url, width);
+}
 
 
 export default function Work() {
@@ -446,6 +461,23 @@ export default function Work() {
   const filteredProjects =
     selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory);
 
+  useEffect(() => {
+    // Warm up images shortly before user reaches this section.
+    const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 250));
+    const cancelIdle = window.cancelIdleCallback || clearTimeout;
+
+    const handle = idle(() => {
+      filteredProjects.slice(0, 8).forEach((project, index) => {
+        const preload = new Image();
+        preload.decoding = "async";
+        preload.fetchPriority = index < 2 ? "high" : "low";
+        preload.src = getOptimizedImageUrl(project.imageUrl, 960);
+      });
+    });
+
+    return () => cancelIdle(handle);
+  }, [selectedCategory]);
+
   return (
     <section className="flex flex-col p-4 mt-28 max-md:px-4 relative bg-transparent">
       <header className="text-center mb-16">
@@ -471,7 +503,7 @@ export default function Work() {
 
       {/* Project Cards Grid */}
       <div className="max-w-6xl mx-auto w-full space-y-10">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project, index) => (
           <motion.article
             layout
             key={project.id}
@@ -502,9 +534,13 @@ export default function Work() {
                 onClick={() => setSelectedProject(project)}
               >
                 <LazyImage
-                  src={project.imageUrl}
+                  src={getOptimizedImageUrl(project.imageUrl, 960)}
                   alt={project.title}
                   className="w-full h-52 transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 92vw, (max-width: 1200px) 40vw, 480px"
+                  priority={index < 4}
+                  responsive
+                  rootMargin="1800px 0px"
                 />
               </div>
 
@@ -514,7 +550,7 @@ export default function Work() {
                   onClick={() => setSelectedProject(project)}
                   className="w-14 h-14 rounded-full flex items-center justify-center border border-gray-300 bg-white group-hover:bg-[#88db66] group-hover:border-[#88db66] transition-all"
                 >
-                  <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png" 
+                  <img src={getOptimizedImageUrl("https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png", 96)} 
                     alt="Open" loading="lazy" decoding="async" className="w-5 h-5 group-hover:invert" />
                 </button>
               </div>
@@ -540,7 +576,13 @@ export default function Work() {
                 {selectedProject.videoUrl ? (
                   <video src={selectedProject.videoUrl} controls autoPlay muted className="w-full h-full object-contain" />
                 ) : (
-                  <img src={selectedProject.imageUrl} alt={selectedProject.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  <img
+                    src={getOptimizedImageUrl(selectedProject.imageUrl, 1400)}
+                    alt={selectedProject.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
                 )}
               </div>
               
