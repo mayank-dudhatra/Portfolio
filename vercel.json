@@ -1,5 +1,0 @@
-{
-  "buildCommand": "npm run build --prefix Frontend",
-  "installCommand": "npm install --prefix Frontend",
-  "outputDirectory": "Frontend/dist"
-}
