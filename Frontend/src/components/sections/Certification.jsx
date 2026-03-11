@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import LazyImage from '../ui/LazyImage';
 
 import eduztrikInternImg from '../../assets/certificates/Mayank-Dudhatra-Eduztrik-Certificate.jpg';
 import eduztrikLOrImg from '../../assets/certificates/Mayank-Dudhatra-Eduztrik-LOR.jpg';
@@ -150,7 +151,7 @@ const Certification = () => {
               <div className="relative z-10 bg-white/[0.03] backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 group-hover:border-[#80db66]/30 transition-all duration-500 shadow-2xl">
                  {/* ... image and content ... */}
                  <div className="relative h-60 overflow-hidden">
-                  <img src={cert.image} alt={cert.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <LazyImage src={cert.image} alt={cert.title} className="w-full h-60" />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center translate-y-4 group-hover:translate-y-0">
                     <a href={cert.link} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-[#80db66] transition-colors shadow-xl">
                       Verify Credential

@@ -272,6 +272,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import LazyImage from "../ui/LazyImage";
 
 // Asset Imports
 import portfoliobanner from '../../assets/PORTFOLIO.png';
@@ -510,12 +511,14 @@ export default function Work() {
               </div>
               
               {/* Center: Image */}
-              <div className="w-[40%] max-md:w-full overflow-hidden rounded-2xl shadow-sm">
-                <img
+              <div
+                className="w-[40%] max-md:w-full overflow-hidden rounded-2xl shadow-sm h-52 cursor-pointer"
+                onClick={() => setSelectedProject(project)}
+              >
+                <LazyImage
                   src={project.imageUrl}
                   alt={project.title}
-                  className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
-                  onClick={() => setSelectedProject(project)}
+                  className="w-full h-52 transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
 
@@ -526,7 +529,7 @@ export default function Work() {
                   className="w-14 h-14 rounded-full flex items-center justify-center border border-gray-300 bg-white group-hover:bg-[#88db66] group-hover:border-[#88db66] transition-all"
                 >
                   <img src="https://res.cloudinary.com/dbrb9ptmn/image/upload/v1739954664/qi9kdueygxma105xflqk.png" 
-                    alt="Open" className="w-5 h-5 group-hover:invert" />
+                    alt="Open" loading="lazy" decoding="async" className="w-5 h-5 group-hover:invert" />
                 </button>
               </div>
             </div>
@@ -551,7 +554,7 @@ export default function Work() {
                 {selectedProject.videoUrl ? (
                   <video src={selectedProject.videoUrl} controls autoPlay muted className="w-full h-full object-contain" />
                 ) : (
-                  <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-full object-cover" />
+                  <img src={selectedProject.imageUrl} alt={selectedProject.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 )}
               </div>
               
