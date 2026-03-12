@@ -10,41 +10,91 @@ import {
   FaFigma,
   FaGithub,
   FaCuttlefish,
+  FaAws,
+  FaDatabase,
+  FaCode,
 } from "react-icons/fa";
-import { SiTailwindcss, SiExpress } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiExpress,
+  SiNextdotjs,
+  SiRedux,
+  SiMui,
+  SiPostman,
+  SiMongodb,
+  SiDocker,
+  SiCloudinary,
+  SiVercel,
+  SiRender,
+  SiNetlify,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 
-// Skill Data
+// Skill Data — original 9 + 14 new
 const skillsData = [
-  { name: "HTML&CSS", percentage: 95 },
-  { name: "Javascript", percentage: 80 },
-  { name: "C&C++", percentage: 85 },
-  { name: "Node.js", percentage: 90 },
-  { name: "Express", percentage: 85 },
-  { name: "React", percentage: 90 },
-  { name: "Tailwind", percentage: 95 },
-  { name: "Figma", percentage: 90 },
-  { name: "Git&Github", percentage: 85 },
+  { name: "HTML&CSS",      percentage: 95 },
+  { name: "Javascript",    percentage: 80 },
+  { name: "C&C++",         percentage: 85 },
+  { name: "Node.js",       percentage: 90 },
+  { name: "Express",       percentage: 85 },
+  { name: "React",         percentage: 90 },
+  { name: "Tailwind",      percentage: 95 },
+  { name: "Figma",         percentage: 90 },
+  { name: "Git&Github",    percentage: 85 },
+  { name: "Next.js",       percentage: 85 },
+  { name: "Redux Toolkit", percentage: 80 },
+  { name: "Material UI",   percentage: 80 },
+  { name: "REST API",      percentage: 90 },
+  { name: "Postman",       percentage: 85 },
+  { name: "MongoDB",       percentage: 88 },
+  { name: "DSA",           percentage: 80 },
+  { name: "Docker",        percentage: 75 },
+  { name: "AWS",           percentage: 70 },
+  { name: "Cloudinary",    percentage: 85 },
+  { name: "Vercel",        percentage: 90 },
+  { name: "Render",        percentage: 85 },
+  { name: "Netlify",       percentage: 85 },
+  { name: "DBMS",          percentage: 80 },
 ];
 
-// Icon map based on name
+// Icon map based on skill name
 const iconMap = {
-  "HTML&CSS": <><FaHtml5 className="text-orange-500" size={56} /> <FaCss3Alt className="text-blue-500 ml-1" size={56} /></>,
-  Javascript: <FaJs className="text-yellow-400" size={56} />,
-  "C&C++": <FaCuttlefish className="text-blue-800" size={56} />,
-  "Node.js": <FaNodeJs className="text-green-600" size={56} />,
-  Express: <SiExpress className="text-gray-600" size={56} />,
-  React: <FaReact className="text-cyan-400" size={56} />,
-  Tailwind: <SiTailwindcss className="text-blue-400" size={56} />,
-  Figma: <FaFigma className="text-pink-500" size={56} />,
+  "HTML&CSS": (
+    <>
+      <FaHtml5 className="text-orange-500" size={56} />
+      <FaCss3Alt className="text-blue-500 ml-1" size={56} />
+    </>
+  ),
+  Javascript:      <FaJs className="text-yellow-400" size={56} />,
+  "C&C++":         <FaCuttlefish className="text-blue-800" size={56} />,
+  "Node.js":       <FaNodeJs className="text-green-600" size={56} />,
+  Express:         <SiExpress className="text-gray-600" size={56} />,
+  React:           <FaReact className="text-cyan-400" size={56} />,
+  Tailwind:        <SiTailwindcss className="text-blue-400" size={56} />,
+  Figma:           <FaFigma className="text-pink-500" size={56} />,
   "Git&Github": (
     <>
       <FaGitAlt className="text-orange-600" size={56} />
       <FaGithub className="ml-2 text-black" size={56} />
     </>
   ),
+  "Next.js":       <SiNextdotjs className="text-white" size={56} />,
+  "Redux Toolkit": <SiRedux className="text-purple-400" size={56} />,
+  "Material UI":   <SiMui className="text-blue-500" size={56} />,
+  "REST API":      <TbApi className="text-[#80db66]" size={56} />,
+  Postman:         <SiPostman className="text-orange-500" size={56} />,
+  MongoDB:         <SiMongodb className="text-green-600" size={56} />,
+  DSA:             <FaCode className="text-yellow-400" size={56} />,
+  Docker:          <SiDocker className="text-blue-400" size={56} />,
+  AWS:             <FaAws className="text-orange-400" size={56} />,
+  Cloudinary:      <SiCloudinary className="text-blue-400" size={56} />,
+  Vercel:          <SiVercel className="text-white" size={56} />,
+  Render:          <SiRender className="text-[#46e3b7]" size={56} />,
+  Netlify:         <SiNetlify className="text-teal-400" size={56} />,
+  DBMS:            <FaDatabase className="text-blue-300" size={56} />,
 };
 
-// Circular progress component
+// Original circular progress ring component — unchanged
 const CircularProgress = ({ percentage, skillName }) => {
   const radius = 70;
   const strokeWidth = 4;
@@ -87,9 +137,14 @@ const CircularProgress = ({ percentage, skillName }) => {
 const SkillsSection = () => {
   return (
     <section className="mt-20 font-jost px-5">
-      <div className="flex gap-5 max-md:flex-col">
-        {/* Left */}
-        <div className="w-[44%] max-md:w-full">
+      {/*
+        items-start on the flex parent lets each child use its own
+        natural height, which is required for position:sticky to work.
+      */}
+      <div className="flex items-start gap-5 max-md:flex-col">
+
+        {/* LEFT — sticky while right side scrolls */}
+        <div className="w-[44%] max-md:w-full sticky top-24 self-start">
           <section className="grow font-semibold max-md:mt-10 max-md:max-w-full">
             <div className="flex flex-col items-start px-8 text-black max-md:px-4 max-md:max-w-full">
               <h2 className="text-[36px] text-[#80db66] font-semibold tracking-[9px] max-md:text-[28px] max-md:tracking-[5px]">
@@ -111,7 +166,7 @@ const SkillsSection = () => {
           </section>
         </div>
 
-        {/* Right */}
+        {/* RIGHT — scrolls normally, drives when left unsticks */}
         <div className="w-[56%] max-md:w-full">
           <div className="mt-4 w-full max-md:mt-6">
             <div className="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1">
@@ -131,6 +186,7 @@ const SkillsSection = () => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
