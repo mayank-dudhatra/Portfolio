@@ -15,6 +15,7 @@ import Verticle from './components/ui/Verticle';
 // Sections
 import Hero from './components/sections/Hero';
 import Aboutme from './components/sections/AboutMe';
+import HackathonAchievement from './components/sections/HackathonAchievement';
 import Work from './components/sections/Work';
 import Myeducation from './components/sections/MyEducation';
 import Service from './components/sections/Service';
@@ -167,6 +168,9 @@ function App() {
         <Aboutme />
         <Myeducation />
       </section>
+
+      {/* Hackathon Achievement */}
+      <HackathonAchievement />
 
       <Runningline />
 
