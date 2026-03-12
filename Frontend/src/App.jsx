@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import './prerender.css';
 
 // Layout & UI
 import MayankLoader from './components/layout/Loader';
+import HackathonPopup from './components/ui/HackathonPopup';
 import Navbar from './components/layout/Navbar';
 import Cards from './components/ui/Cards';
 import Runningline from './components/ui/RunningLine';
@@ -24,6 +25,7 @@ const HERO_BG_IMAGE = 'https://res.cloudinary.com/dbrb9ptmn/image/upload/v173988
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
@@ -128,9 +130,25 @@ function App() {
     }
   }, [isLoading]);
 
+  // Show hackathon popup on every load after loader finishes
+  useEffect(() => {
+    if (!isLoading && !isPrerendering) {
+      const t = setTimeout(() => setShowPopup(true), 900);
+      return () => clearTimeout(t);
+    }
+  }, [isLoading, isPrerendering]);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   if (isLoading && !isPrerendering) return <MayankLoader />;
 
   return (
+    <>
+      <AnimatePresence>
+        {showPopup && <HackathonPopup key="hackathon-popup" onClose={handleClosePopup} />}
+      </AnimatePresence>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -178,6 +196,7 @@ function App() {
         <Contactus />
       </section>
     </motion.div>
+    </>
   );
 }
 
