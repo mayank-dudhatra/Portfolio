@@ -48,9 +48,9 @@ function App() {
     const finishLoading = () => {
       if (!isMounted) return;
 
-      // Keep loader visible briefly to avoid abrupt flashes.
+      // Keep loader visible for the full circle animation (4s) before showing portfolio.
       const elapsed = Date.now() - startedAt;
-      const remaining = Math.max(0, 350 - elapsed);
+      const remaining = Math.max(0, 4100 - elapsed);
 
       setTimeout(() => {
         if (!isMounted) return;
@@ -75,7 +75,7 @@ function App() {
     }
 
     // Never block UI for too long on a slow image request.
-    const fallbackTimer = setTimeout(finishLoading, 2500);
+    const fallbackTimer = setTimeout(finishLoading, 4200);
 
     return () => {
       isMounted = false;

@@ -57,7 +57,7 @@ export default function Navbar({ isScrolled, activeSection }) {
           </a>
         ))}
         <a
-          href="https://drive.google.com/uc?export=download&id=16RezKoXaEGv_E8y1di4ZrBI-nUZQKL25"
+          href="https://drive.google.com/uc?export=download&id=152GFqGSMYDyRfAj1NJwyqAxguBiA9FEO"
           download="Mayank_Dudhatra_Resume.pdf"
           className="ml-4 px-5 py-2 border border-[#80db66] text-[#80db66] rounded-full hover:bg-[#80db66] hover:text-black transition-all duration-300 font-semibold text-sm"
         >
@@ -82,7 +82,7 @@ export default function Navbar({ isScrolled, activeSection }) {
           </a>
         ))}
         <a
-          href="https://drive.google.com/uc?export=download&id=16RezKoXaEGv_E8y1di4ZrBI-nUZQKL25"
+          href="https://drive.google.com/uc?export=download&id=152GFqGSMYDyRfAj1NJwyqAxguBiA9FEO"
           download="Mayank_Dudhatra_Resume.pdf"
           className="mt-4 px-8 py-3 bg-[#80db66] text-black rounded-full font-bold"
           onClick={toggleMenu}

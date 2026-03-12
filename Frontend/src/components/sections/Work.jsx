@@ -304,6 +304,16 @@ export default function Work() {
     description: "TRAZEX11 is a stock market-based fantasy gaming platform where users create virtual teams using stocks instead of sports players. Features real-time prices, leaderboards, and portfolio management.",
   },
   {
+    id: 18,
+    category: "Hackathon Project",
+    title: "Azure AI Code Assistant",
+    tech: "TypeScript, React, VS Code Extension API, Azure AI, RAG",
+    platform: "Doppelganger OpenPools Hackathon",
+    imageUrl: "YOUR_IMAGE_PATH_HERE",
+    url: "#",
+    description: "Azure AI Code Assistant is an AI-powered VS Code extension that detects Azure coding context and provides reliable inline Azure SDK suggestions using a Retrieval-Augmented Generation pipeline.",
+  },
+  {
     id: 2,
     category: "Web Development",
     title: "AgroSaaS",
@@ -457,6 +467,7 @@ export default function Work() {
   const categories = ["All", "Web Development", "UI/UX Design", "Mobile Development", "Hackathon Project"];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const hasLiveUrl = selectedProject?.url && selectedProject.url !== "#";
 
   const filteredProjects =
     selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory);
@@ -634,6 +645,57 @@ export default function Work() {
                         "User Dashboard – Track joined contests, team performance, contest history, and wallet details.",
                         "Real-Time Updates – Live stock updates and contest results using WebSocket-based communication.",
                         "Responsive UI – Optimized interface across mobile, tablet, and desktop devices."
+                      ].map((feature, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-[#88db66] rounded-full mt-3 flex-shrink-0"></div>
+                          <p className="text-gray-600 text-base leading-relaxed font-jost">{feature}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : selectedProject.title === "Azure AI Code Assistant" ? (
+                <div className="mt-6 space-y-8">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#2e2e37] mb-4">Technology Stack</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {[
+                        "TypeScript", "React", "VS Code Extension API", "Azure AI", "RAG Pipeline",
+                        "Vector Search", "Large Language Models", "Extension Webview UI", "Node.js"
+                      ].map((tech, index) => (
+                        <span key={index} className="px-3 py-2 bg-[#88db66]/10 text-[#88db66] text-sm font-semibold rounded-lg border border-[#88db66]/20">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#2e2e37] mb-4">Project Overview</h3>
+                    <p className="text-gray-600 text-lg leading-relaxed font-jost mb-4">
+                      Azure AI Code Assistant is an AI-powered developer tool built as a VS Code extension to help developers write Azure SDK code faster and more accurately. The extension detects Azure-related coding context in real time and provides intelligent inline suggestions directly inside the editor, similar to modern AI coding assistants.
+                    </p>
+                    <p className="text-gray-600 text-lg leading-relaxed font-jost mb-4">
+                      The system uses a Retrieval-Augmented Generation pipeline to retrieve relevant Azure documentation before generating code suggestions with large language models. This significantly reduces hallucinations and improves the reliability of Azure-specific completions, imports, and quick fixes.
+                    </p>
+                    <p className="text-gray-600 text-lg leading-relaxed font-jost">
+                      The project was built during the Doppelganger OpenPools Hackathon, where the team designed and developed a complete AI developer-assistance ecosystem including the VS Code extension, backend AI service, and product website.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#2e2e37] mb-4">Key Features</h3>
+                    <div className="space-y-3">
+                      {[
+                        "AI Inline Code Suggestions – Provides Copilot-style ghost text suggestions directly inside VS Code.",
+                        "Azure Context Detection – Automatically identifies Azure services such as Blob Storage, Cosmos DB, Key Vault, and Service Bus.",
+                        "RAG-Powered Knowledge Retrieval – Uses vector search to fetch relevant Azure documentation before generation.",
+                        "Smart Code Generation – Produces context-aware Azure SDK implementations based on code context and developer comments.",
+                        "Automatic Import Injection – Suggests and inserts required Azure SDK imports automatically.",
+                        "Quick Fix & Developer Assistance – Provides fixes and optimized snippets for Azure SDK usage.",
+                        "Feedback System – Lets developers rate suggestions to improve output quality over time.",
+                        "Extension Webview UI – Includes an interactive React-based suggestion panel inside the VS Code extension.",
+                        "Fallback & Mock Mode – Supports local development and testing without requiring full cloud infrastructure."
                       ].map((feature, index) => (
                         <div key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-[#88db66] rounded-full mt-3 flex-shrink-0"></div>
@@ -1267,9 +1329,11 @@ export default function Work() {
               )}
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={selectedProject.url} target="_blank" rel="noopener noreferrer" className="px-10 py-4 bg-[#88db66] text-white font-bold rounded-full shadow-lg hover:-translate-y-1 transition-transform">
-                  View Live
-                </a>
+                {hasLiveUrl && (
+                  <a href={selectedProject.url} target="_blank" rel="noopener noreferrer" className="px-10 py-4 bg-[#88db66] text-white font-bold rounded-full shadow-lg hover:-translate-y-1 transition-transform">
+                    View Live
+                  </a>
+                )}
                 {selectedProject.github && (
                   <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="px-10 py-4 border-2 border-[#2e2e37] text-[#2e2e37] font-bold rounded-full hover:bg-[#2e2e37] hover:text-white transition-all">
                     GitHub Repo
