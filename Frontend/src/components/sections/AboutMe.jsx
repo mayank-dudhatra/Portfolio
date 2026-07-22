@@ -38,7 +38,7 @@ export default function AboutMe() {
                       <dt className="font-semibold">Name</dt>
                       <dd>Mayank Dudhatra</dd>
                       <dt className="font-semibold">Age</dt>
-                      <dd>18 Years</dd>
+                      <dd>19 Years</dd>
                       <dt className="font-semibold">Address</dt>
                       <dd>Ahemdabad</dd>
                     </dl>

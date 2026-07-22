@@ -58,7 +58,7 @@ export default function Myeducation() {
                   creating user-centric and scalable solutions.
                 </p>
                 <p className="mt-2 text-[22px] font-semibold text-[#2e2e37] max-md:text-[18px]">
-                  Current CGPA: <strong className="text-[#80db66]">9.76</strong>
+                  Current CGPA: <strong className="text-[#80db66]">9.73</strong>
                 </p>
               </div>
             </div>
