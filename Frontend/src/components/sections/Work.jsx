@@ -366,6 +366,7 @@ export default function Work() {
     title: "Wallet App",
     tech: "React Native, Expo, PostgreSQL, Clerk",
     imageUrl: "/assets/Wallet-App.webp",
+    videoUrl: "https://drive.google.com/file/d/1NOwX4e5kJFQhAcUO1WarTJp-CZqCx5tN/view?usp=sharing",
     url: "https://expo.dev/accounts/mayank_dudhatra/projects/expense-tracker/builds/1a19345b-b1e1-4ee8-b384-115af3ef72ea",
     github: "https://github.com/Mayank-Dudhatra/Wallet-App",
     description: "Wallet is a full-stack mobile expense tracking application built with React Native and Express.js, featuring secure Clerk authentication, real-time balance updates, and cross-platform compatibility for Android and iOS.",
