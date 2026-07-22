@@ -273,6 +273,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LazyImage from "../ui/LazyImage";
+import doppelgangerImage from "../../assets/doppelganger.webp";
 
 function optimizeCloudinaryImage(url, width = 900) {
   if (!url || !url.includes("res.cloudinary.com") || !url.includes("/image/upload/")) {
@@ -287,6 +288,28 @@ function getOptimizedImageUrl(url, width = 900) {
   if (!url || url === "YOUR_IMAGE_PATH_HERE") return "/assets/PORTFOLIO.webp";
   if (url.startsWith("/assets/")) return url;
   return optimizeCloudinaryImage(url, width);
+}
+
+function getVideoEmbedUrl(url) {
+  if (!url) return null;
+
+  const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (driveMatch) {
+    return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+  }
+
+  const youtubeMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+  if (youtubeMatch) {
+    return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+  }
+
+  return null;
+}
+
+function isDirectVideoUrl(url) {
+  if (!url) return false;
+
+  return /\.(mp4|webm|ogg)(\?|$)/i.test(url) || url.includes("res.cloudinary.com");
 }
 
 
@@ -309,7 +332,8 @@ export default function Work() {
     title: "Azure AI Code Assistant",
     tech: "TypeScript, React, VS Code Extension API, Azure AI, RAG",
     platform: "Doppelganger OpenPools Hackathon",
-    imageUrl: "https://drive.google.com/file/d/1J8N4HjTYtpecliU1xj2BAwrSEPIT16ks/view?usp=sharing",
+    imageUrl: doppelgangerImage,
+    videoUrl: "https://drive.google.com/file/d/15gxprjXDURXb4AHjBpV8XLOX89TVL8_u/view?usp=sharing",
     url: "https://azure-ai-code-assistant.vercel.app/",
     github: "https://github.com/mayank-dudhatra/Azure-AI-Code-Assistant",
     description: "Azure AI Code Assistant is an AI-powered VS Code extension that detects Azure coding context and provides reliable inline Azure SDK suggestions using a Retrieval-Augmented Generation pipeline.",
@@ -320,7 +344,7 @@ export default function Work() {
   title: "Cafe POS System",
   tech: "Next.js, React, Node.js, Express.js, Prisma, PostgreSQL, Socket.IO, Tailwind CSS, Zustand, Razorpay",
   platform: "Odoo x Parul University",
-  imageUrl: "/assets/CafePOS.webp",
+  imageUrl: "https://mir-s3-cdn-cf.behance.net/projects/404/f28711249871709.Y3JvcCwyODgwLDIyNTIsMCwxMjg.png",
   url: "https://odoo-cafe-frontend.vercel.app/",
   videoUrl: "https://drive.google.com/file/d/1xeF9xpZQB4_aOnMHfVR9A6cuq37SQrvw/view?usp=sharing",
   github: "https://github.com/mayank-dudhatra/Odoo-Parul-University",
@@ -332,8 +356,8 @@ export default function Work() {
     category: "Web Development",
     title: "AgroSaaS",
     tech: "Next.js, Multi-tenant, PostgreSQL",
-    imageUrl: "YOUR_IMAGE_PATH_HERE",
-    url: "#",
+    imageUrl: "https://market-resized.envatousercontent.com/videohive.net/files/804742642/Preview.jpg?auto=format&q=85&cf_fit=crop&gravity=top&h=8000&w=590&s=b3153ec46c92a0eb92cd8dc1c55da9e6274fedb93b0ab23531a397bad409a6c0",
+    url: "https://github.com/mayank-dudhatra/Saas",
     description: "Multi-tenant business management SaaS for agro-shops, combining Inventory, POS, and Supplier management.",
   },
   {
@@ -511,7 +535,7 @@ export default function Work() {
     });
 
     return () => cancelIdle(handle);
-  }, [selectedCategory]);
+  }, [filteredProjects]);
 
   return (
     <section className="flex flex-col p-4 mt-28 max-md:px-4 relative bg-transparent">
@@ -609,7 +633,34 @@ export default function Work() {
             >
               <div className="rounded-3xl overflow-hidden bg-black aspect-video mb-8">
                 {selectedProject.videoUrl ? (
-                  <video src={selectedProject.videoUrl} controls autoPlay muted className="w-full h-full object-contain" />
+                  isDirectVideoUrl(selectedProject.videoUrl) ? (
+                    <video
+                      src={selectedProject.videoUrl}
+                      controls
+                      autoPlay
+                      muted
+                      playsInline
+                      preload="metadata"
+                      poster={getOptimizedImageUrl(selectedProject.imageUrl, 1400)}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : getVideoEmbedUrl(selectedProject.videoUrl) ? (
+                    <iframe
+                      src={getVideoEmbedUrl(selectedProject.videoUrl)}
+                      title={`${selectedProject.title} video`}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <img
+                      src={getOptimizedImageUrl(selectedProject.imageUrl, 1400)}
+                      alt={selectedProject.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
+                  )
                 ) : (
                   <img
                     src={getOptimizedImageUrl(selectedProject.imageUrl, 1400)}
@@ -1158,7 +1209,7 @@ export default function Work() {
                   <div>
                     <h3 className="text-2xl font-bold text-[#2e2e37] mb-4">Project Overview</h3>
                     <p className="text-gray-600 text-lg leading-relaxed font-jost mb-4">
-                      This project is a UI/UX mobile application design inspired by Instagram, created using Figma. The design includes major screens such as login, home feed, stories, search, reels, profile, messaging, and content upload. Each interface closely follows Instagram's visual style while being recreated as a learning exercise to practice layout design and user interface structure.
+                      This project is a UI/UX mobile application design inspired by Instagram, created using Figma. The design includes major screens such as login, home feed, stories, search, reels, profile, messaging, and content upload. Each interface closely follows Instagram&apos;s visual style while being recreated as a learning exercise to practice layout design and user interface structure.
                     </p>
                     <p className="text-gray-600 text-lg leading-relaxed font-jost mb-4">
                       All screens are connected through interactive prototype links, enabling a smooth simulation of the user journey throughout the application. The design follows proper mobile layout guidelines, including consistent spacing, alignment, and grid-based structure. Icons, typography, and color schemes are designed to resemble the original application while maintaining clarity and usability.
